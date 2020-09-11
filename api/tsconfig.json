@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "outDir": "./",
+        "declaration": true,
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "moduleResolution": "node",
+        "preserveSymlinks": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "*"
+            ]
+        },
+        "lib": [
+            "DOM",
+            "ES2017"
+        ]
+    },
+    "include": [
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "test"
+    ]
+}

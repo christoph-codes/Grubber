@@ -1,0 +1,12 @@
+node_modules
+.vscode
+coverage-tmp
+coverage
+/dist
+/.nyc_output
+/logs
+*.d.ts
+*.js
+*.js.map
+package-lock.json
+.history
