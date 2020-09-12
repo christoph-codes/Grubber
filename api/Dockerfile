@@ -12,12 +12,12 @@ COPY middlewares.ts .
 COPY package.json .
 COPY pm2.json .
 
+ARG APP_ENV
+
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
+ENV NODE_ENV
 RUN npm install --production
-
-# Build the app
-RUN npm build
 
 # Expose the listening port
 EXPOSE 3333
@@ -25,8 +25,4 @@ EXPOSE 3333
 # Show current folder structure in logs
 RUN ls -al -R
 
-ARG APP_ENV
-
-RUN echo $APP_ENV
-
-CMD pm2 start pm2.json --only ${APP_ENV}
+CMD pm2 start pm2.json

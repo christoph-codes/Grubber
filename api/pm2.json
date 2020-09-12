@@ -2,18 +2,7 @@
     "apps": [
         {
             "name": "DEV",
-            "env":  {
-                "NODE_ENV": "dev"
-            },
             "script": "index.js"
-        },
-        {
-            "name": "PROD",
-            "env": {
-                "NODE_ENV": "prod"
-            },
-            "script": "npm",
-            "args": "start"
         }
     ]
     
