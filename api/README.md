@@ -21,10 +21,10 @@ This command also will run the linter. The global coverage thresholds for code c
 ## Baking the Docker Image
 
 The Docker image is built utilizing a PM2 runtime environment. The build command requires the APP_ENV build argument (Either DEV or PROD).
-For a dev environment use the command ``docker build --build-arg APP_ENV=DEV --tag GrubberApi``
-For a prod environment use the command ``docker build --build-arg APP_ENV=PROD --tag GrubberApi``
+For a dev environment use the command ``docker build --build-arg APP_ENV=DEV --tag grubberapi``
+For a prod environment use the command ``docker build --build-arg APP_ENV=PROD --tag grubberapi``
 
 ## Starting the Container
 
-To start the Docker container use the following command: ``docker run --publish 80:3333 --detach --name ga GrubberApi``
+To start the Docker container use the following command: ``docker run --publish 80:3333 --detach --name ga grubberapi``
 This routes traffic from the server's port 80 to the container's port 3333.
