@@ -21,8 +21,8 @@ This command also will run the linter. The global coverage thresholds for code c
 ## Baking the Docker Image
 
 The Docker image is built utilizing a PM2 runtime environment. The build command requires the APP_ENV build argument (Either DEV or PROD).
-For a dev environment use the command ``docker build --build-arg APP_ENV=DEV --tag grubberapi``
-For a prod environment use the command ``docker build --build-arg APP_ENV=PROD --tag grubberapi``
+For a dev environment use the command ``docker build --build-arg APP_ENV=DEV --tag grubberapi .``
+For a prod environment use the command ``docker build --build-arg APP_ENV=PROD --tag grubberapi .``
 
 ## Starting the Container
 
