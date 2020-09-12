@@ -23,6 +23,6 @@ RUN npm install --production
 EXPOSE 3333
 
 # Show current folder structure in logs
-RUN ls -al -R
+RUN ls -l
 
 CMD pm2 start pm2.json
