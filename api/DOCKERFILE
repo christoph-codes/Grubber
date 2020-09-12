@@ -1,6 +1,7 @@
 FROM keymetrics/pm2:10-alpine
 
 # Bundle files
+COPY tsconfig.json
 COPY api api/
 COPY constants constants/
 COPY routes routes/
@@ -21,6 +22,4 @@ EXPOSE 3333
 # Show current folder structure in logs
 RUN ls -al -R
 
-# CLI command: docker build --build-arg APP_ENV=[DEV or PROD] --tag GrubberApi
-# CLI command: docker run --publish 80:3333 --detach --name ga GrubberApi
 CMD [ "pm2-runtime", "start", "pm2.json", "--only", $APP_ENV ]
