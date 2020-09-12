@@ -29,4 +29,4 @@ ARG APP_ENV
 
 RUN echo $APP_ENV
 
-CMD [ "pm2-runtime", "pm2.json", "--only", $APP_ENV ]
+CMD [ "pm2", "pm2.json", "--only", $APP_ENV ]
