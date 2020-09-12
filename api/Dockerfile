@@ -27,4 +27,4 @@ EXPOSE 3333
 # Show current folder structure in logs
 RUN ls -l
 
-CMD pm2 start pm2.json
+CMD node index.js
