@@ -1,7 +1,7 @@
 FROM keymetrics/pm2:10-alpine
 
 # Bundle files
-COPY tsconfig.json
+COPY tsconfig.json .
 COPY api api/
 COPY constants constants/
 COPY routes routes/
