@@ -16,7 +16,7 @@ ARG APP_ENV
 
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
-ENV NODE_ENV
+ENV NODE_ENV $APP_ENV
 RUN npm install --production
 
 # Expose the listening port
