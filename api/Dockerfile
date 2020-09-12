@@ -16,6 +16,9 @@ COPY pm2.json .
 ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install --production
 
+# Build the app
+RUN npm build
+
 # Expose the listening port
 EXPOSE 3333
 
@@ -26,4 +29,4 @@ ARG APP_ENV
 
 RUN echo $APP_ENV
 
-CMD [ "pm2-runtime", "start", "pm2.json", "--only", "DEV" ]
+CMD [ "pm2-runtime", "start", "pm2.json", "--only", $APP_ENV ]
