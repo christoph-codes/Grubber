@@ -5,8 +5,7 @@
             "env":  {
                 "NODE_ENV": "dev"
             },
-            "script": "npm",
-            "args": "start"
+            "script": "index.js"
         },
         {
             "name": "PROD",
