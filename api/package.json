@@ -27,6 +27,7 @@
     "crypto-js": "4.0.0",
     "csrf": "3.1.0",
     "express": "4.17.1",
+    "log4js": "6.3.0",
     "nconf": "0.10.0",
     "request": "2.88.2",
     "typescript": "3.4.3"
