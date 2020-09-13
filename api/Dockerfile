@@ -19,4 +19,4 @@ RUN ls -al -R
 
 RUN pwd
 
-CMD pm2 start pm2.json
+CMD pm2-runtime start pm2.json
