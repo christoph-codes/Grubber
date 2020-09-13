@@ -1,0 +1,69 @@
+swagger: '2.0'
+info:
+  description: Grubber API
+  version: 1.0.0
+  title: Grubber API
+  # put the contact info for your development or API team
+  contact:
+    email: weneedanemail@domain.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: Health Check
+  description: Health Check API
+
+paths:
+  /healthcheck:
+    get:
+      tags:
+      - Health Check
+      summary: Returns a 200 status code if service is up and running
+      operationId: healthCheck
+      description: Used to determine if services are up and running
+      produces:
+      - application/json
+      responses:
+        200:
+          description: services are healthy
+          schema:
+            $ref: '#/definitions/HealthCheckResponse'
+        418:
+          description: if you are markus
+          schema:
+            $ref: '#/definitions/418'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+          
+definitions:
+  HealthCheckResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        example: app is healthy
+  418:
+    type: object
+    properties:
+      error:
+        type: string
+        example: im_a_teapot
+      error_message:
+        type: string
+        example: This error message body is short and stout
+  503:
+    type: object
+    properties:
+      error:
+        type: string
+        example: request_timeout
+# Added by API Auto Mocking Plugin
+host: ec2-54-190-46-230.us-west-2.compute.amazonaws.com
+basePath: /
+schemes:
+ - http
