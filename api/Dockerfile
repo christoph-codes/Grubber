@@ -18,4 +18,4 @@ RUN ls -al -R
 
 RUN pwd
 
-CMD node index.js
+CMD pm2 start pm2.json
