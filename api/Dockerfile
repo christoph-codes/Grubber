@@ -15,7 +15,7 @@ ENV NODE_ENV $APP_ENV
 EXPOSE 3333
 
 # Show current folder structure in logs
-RUN ls -al -R
+RUN ls -al
 
 RUN pwd
 
