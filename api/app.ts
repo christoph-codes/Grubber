@@ -2,7 +2,7 @@
 import * as express from 'express';
 import { json, urlencoded } from 'body-parser';
 import * as cookieParser from 'cookie-parser';
-import { setApiTimeout, addHeaders, checkIp } from './middlewares';
+import { setApiTimeout, addHeaders, checkIp, logRequest } from './middlewares';
 import { apiRoutes } from './routes/routes';
 
 const app: express.Application = express();
@@ -21,7 +21,7 @@ app.use(urlencoded({
 app.use(cookieParser());
 
 // set request timeout and add response headers
-app.all('*', setApiTimeout, addHeaders, checkIp);
+app.all('*', setApiTimeout, addHeaders, checkIp, logRequest);
 
 // add routes
 app.use('/', apiRoutes(router));

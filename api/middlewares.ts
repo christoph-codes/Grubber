@@ -46,12 +46,12 @@ export const checkIp = (req: Request, res: Response, next: NextFunction) => {
 export const logRequest = (req: Request, _res: Response, next: NextFunction) => {
     const reqObj = {
         method: req.method,
-        path: req.url,
+        path: req.path,
         body: req.body,
         ip: req.ip,
         headers: req.headers,
         params: req.params
     };
-    grubberLogger.access('Request received: ', { filename, obj: reqObj });
+    grubberLogger.access('Request received: ', { filename, obj: JSON.stringify(reqObj) });
     next();
 };

@@ -3,14 +3,16 @@ import * as log4js from 'log4js';
 
 log4js.configure({
     appenders: {
-        debug: { type: 'file', filename: '~/logs/grubber-debug.log'},
-        error: { type: 'file', filename: '~/logs/grubber-error.log'},
-        access: { type: 'file', filename: '~/logs/grubber-access.log'}
+        debug: { type: 'file', filename: 'logs/grubber-debug.log'},
+        error: { type: 'file', filename: 'logs/grubber-error.log'},
+        access: { type: 'file', filename: 'logs/grubber-access.log'},
+        debugLog: { type: 'logLevelFilter', appender: 'debug', level: 'debug' },
+        errorLog: { type: 'logLevelFilter', appender: 'error', level: 'error' },
+        accessLog: { type: 'logLevelFilter', appender: 'access', level: 'trace' },
+        info: { type: 'file', filename: 'logs/grubber-info.log'}
     },
     categories: {
-        debug: { appenders: ['debug'], level: 'debug'},
-        error: { appenders: ['error'], level: 'error'},
-        access: { appenders: ['access'], level: 'trace'}
+        default: {appenders: ['debugLog', 'errorLog', 'accessLog'], level: 'all'}
     }
 });
 

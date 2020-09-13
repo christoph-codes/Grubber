@@ -62,7 +62,8 @@
     ],
     "exclude": [
       "**/*.spec.ts",
-      "middlewares.ts"
+      "middlewares.ts",
+      "logger.ts"
     ],
     "reporter": [
       "html",
