@@ -18,6 +18,9 @@ EXPOSE 3333
 RUN ls -al
 
 RUN pwd
+RUN cd tmp
+RUN ls -al
+RUN cd ..
 
 RUN tail -f /logs/grubber-access.log /logs/grubber-debug.log /logs/grubber-error.log > /temp/stdout.log 
 
