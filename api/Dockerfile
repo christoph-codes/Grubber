@@ -1,6 +1,7 @@
 FROM keymetrics/pm2:10-alpine
 
 # Bundle files
+COPY pm2.json .
 COPY dist .
 COPY node_modules node_modules
 
