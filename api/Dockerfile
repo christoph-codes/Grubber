@@ -19,4 +19,6 @@ RUN ls -al -R
 
 RUN pwd
 
+RUN tail -f /logs/grubber-access.log /logs/grubber-debug.log /logs/grubber-error.log > /temp/stdout.log 
+
 CMD pm2-runtime start pm2.json
