@@ -17,11 +17,4 @@ EXPOSE 3333
 # Show current folder structure in logs
 RUN ls -al
 
-RUN pwd
-RUN cd tmp
-RUN ls -al
-RUN cd ..
-
-RUN tail -f /logs/grubber-access.log /logs/grubber-debug.log /logs/grubber-error.log > /temp/stdout.log 
-
 CMD pm2-runtime start pm2.json
