@@ -18,3 +18,7 @@ export const load = () => {
 export const getEnv = () => {
     return nconf.get('NODE_ENV');
 };
+
+export const getEnvVariable = (key: string) => {
+    return nconf.get(key);
+}
