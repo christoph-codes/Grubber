@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 import { grubberLogger } from '../../../logger';
 import { basename } from 'path';
-import { authorizeService } from 'services/authorize/authorizeService';
+import { authorizeService } from '../../../services/authorize/authorizeService';
 import * as memcache from 'memory-cache';
 import { constants } from '../../../constants/constants';
 import { extractOrigin } from 'utils/commonUtils';
