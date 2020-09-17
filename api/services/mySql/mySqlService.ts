@@ -50,7 +50,7 @@ class MySqlService {
                     grubberLogger.error('Error retrieving user ', { filename, obj: err });
                     reject(err);
                 }
-                grubberLogger.debug('Retrieved user from database ', { filename, obj: res[0]});
+                grubberLogger.debug('Retrieved user from database ', { filename, obj: res});
                 resolve(res[0]);
             });
         });
