@@ -9,12 +9,18 @@ const filename = basename(__filename);
 
 class MySqlService {
 
-    private pool = createPool({
-        host: getEnvVariable('GRUBBER_DBHOST'),
-        user: getEnvVariable('GRUBBER_DBUSER'),
-        password: getEnvVariable('GRUBBER_DBPASS'),
-        database: getEnvVariable('GRUBBER_DB'),
-    });
+    private createPool = () => {
+        const sessionOpts = {
+            host: getEnvVariable('GRUBBER_DBHOST'),
+            user: getEnvVariable('GRUBBER_DBUSER'),
+            password: getEnvVariable('GRUBBER_DBPASS'),
+            database: getEnvVariable('GRUBBER_DB'),
+        }
+        grubberLogger.debug('Creating pool with configs ', { filename, obj: sessionOpts });
+
+        return createPool(sessionOpts);
+    };
+    private pool = this.createPool();
 
     public createUser = (user: any) => {
         return new Promise((resolve, reject) => {
