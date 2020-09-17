@@ -1,5 +1,5 @@
 
-import { createPool, format } from 'mysql';
+import { createPool, format, Pool } from 'mysql';
 import { getEnvVariable } from '../../env';
 import { grubberLogger } from '../../logger';
 import { basename } from 'path';
@@ -9,19 +9,19 @@ const filename = basename(__filename);
 
 class MySqlService {
 
-    private createPool = () => {
+    private pool: Pool;
+
+    public activate = () => {
         const sessionOpts = {
             host: getEnvVariable('GRUBBER_DBHOST'),
             user: getEnvVariable('GRUBBER_DBUSER'),
             password: getEnvVariable('GRUBBER_DBPASS'),
             database: getEnvVariable('GRUBBER_DB'),
         }
-        // tslint:disable-next-line: no-console
-        console.log('Creating pool with configs ', { filename, obj: sessionOpts });
+        grubberLogger.debug('Creating pool with configs ', { filename, obj: sessionOpts });
 
-        return createPool(sessionOpts);
+        this.pool =  createPool(sessionOpts);
     };
-    private pool = this.createPool();
 
     public createUser = (user: any) => {
         return new Promise((resolve, reject) => {
