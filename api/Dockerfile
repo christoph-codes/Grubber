@@ -21,6 +21,7 @@ ENV GRUBBER_DB $DB
 
 # Expose the listening port
 EXPOSE 3333
+EXPOSE 3306
 
 # Show current folder structure in logs
 RUN ls -al
