@@ -16,7 +16,8 @@ class MySqlService {
             password: getEnvVariable('GRUBBER_DBPASS'),
             database: getEnvVariable('GRUBBER_DB'),
         }
-        grubberLogger.debug('Creating pool with configs ', { filename, obj: sessionOpts });
+        // tslint:disable-next-line: no-console
+        console.log('Creating pool with configs ', { filename, obj: sessionOpts });
 
         return createPool(sessionOpts);
     };
