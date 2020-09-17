@@ -18,7 +18,7 @@ class MySqlService {
 
     public createUser = (user: any) => {
         return new Promise((resolve, reject) => {
-            const queryString = 'INSERT INTO USERS (user_name, user_pass, user_hash, create_on) VALUES ' +
+            const queryString = 'INSERT INTO USERS (user_name, user_pass, user_hash, created_on) VALUES ' +
                 '(??, ??, ??, ??)';
 
             const userHash = this.randomString();
