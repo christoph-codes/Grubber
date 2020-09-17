@@ -1,5 +1,6 @@
 
 import * as log4js from 'log4js';
+import { constants } from './constants/constants';
 
 log4js.configure({
     appenders: {
@@ -20,20 +21,36 @@ class GrubberLogger {
 
     private logger = log4js.getLogger();
 
+    public access = (message: string, args: LogArgs) => {
+        this.logger.trace(this.buildMessage(message, args.filename), this.sanitizeObj(args.obj));
+    }
+
+    public debug = (message: string, args: LogArgs) => {
+        this.logger.debug(this.buildMessage(message, args.filename), this.sanitizeObj(args.obj));
+    }
+
+    public error = (message: string, args: LogArgs) => {
+        this.logger.error(this.buildMessage(message, args.filename), this.sanitizeObj(args.obj));
+    }
+
     private buildMessage = (message: string, filename: string) => {
         return '[' + filename + '] ' + message;
     }
 
-    public access = (message: string, args: LogArgs) => {
-        this.logger.trace(this.buildMessage(message, args.filename), args.obj);
-    }
-
-    public debug = (message: string, args: LogArgs) => {
-        this.logger.debug(this.buildMessage(message, args.filename), args.obj);
-    }
-
-    public error = (message: string, args: LogArgs) => {
-        this.logger.error(this.buildMessage(message, args.filename), args.obj);
+    /** Remove sensitive fields from logging */
+    private sanitizeObj = (argObj: any) => {
+        if (typeof argObj === 'object') {
+            for (const key of Object.keys(argObj)) {
+                if (typeof key === 'object') {
+                    this.sanitizeObj(key);
+                }
+                if (constants.SANITIZE_FIELDS_LOGGING.includes(argObj[key])) {
+                    argObj[key] = '***';
+                }
+            }
+        }
+        
+        return argObj;
     }
     
 }

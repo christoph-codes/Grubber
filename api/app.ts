@@ -16,7 +16,6 @@ app.use(urlencoded({
     extended: false
 }));
 
-
 // mount cookie parser
 app.use(cookieParser());
 
