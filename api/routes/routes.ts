@@ -5,6 +5,6 @@ import { authRoutes } from './authRoutes';
 
 export const apiRoutes = (router: Router) => {
     router.all('/healthcheck', healthCheck);
-    router.apply(authRoutes);
+    authRoutes(router);
     return router;
 };

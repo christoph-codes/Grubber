@@ -8,7 +8,6 @@ import { createServer } from 'http';
 import { load } from './env';
 import { app } from './app';
 import { constants } from './constants/constants';
-import { dirname } from 'path';
 
 process.on('unhandledRejection', (reason, p) => {
     console.error('Unhandled rejection ', { reason, p });
@@ -45,5 +44,4 @@ server.listen(constants.PORT);
 server.on('error', errorHandler);
 server.on('listening', () => {
     console.log(`App listening on port ${constants.PORT}`);
-    console.log(dirname(__filename));
 });
