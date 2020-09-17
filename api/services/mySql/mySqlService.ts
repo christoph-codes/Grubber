@@ -58,7 +58,7 @@ class MySqlService {
                     reject(err);
                 }
                 if (res && res.length) {
-                    grubberLogger.debug('Retrieved user from database ', { filename, obj: res});
+                    grubberLogger.debug('Retrieved user from database ', { filename, obj: res[0]});
                     resolve(res[0]);
                 } else {
                     grubberLogger.error('User not found ', { filename });
