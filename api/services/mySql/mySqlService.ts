@@ -19,7 +19,7 @@ class MySqlService {
     public createUser = (user: any) => {
         return new Promise((resolve, reject) => {
             const queryString = 'INSERT INTO USERS (user_name, user_pass, user_hash, created_on) VALUES ' +
-                '(??, ??, ??, ??)';
+                '(?, ?, ?, ?)';
 
             const userHash = this.randomString();
             const userPass = AES.encrypt(user.userPass, userHash);
@@ -40,7 +40,7 @@ class MySqlService {
 
     public retrieveUser = (userId: any, idType: string) => {
         return new Promise<any>((resolve, reject) => {
-            const queryString = 'SELECT * FROM USERS WHERE ?? = ??';
+            const queryString = 'SELECT * FROM USERS WHERE ?? = ?';
 
             const query = format(queryString, [idType, userId]);
             grubberLogger.debug('Query for user ', { filename, obj: query });
