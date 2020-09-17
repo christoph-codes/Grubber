@@ -43,6 +43,7 @@ class MySqlService {
             const queryString = 'SELECT * FROM USERS WHERE ?? = ??';
 
             const query = format(queryString, [userId, idType]);
+            grubberLogger.debug('Query for user ' { filename, obj: query });
 
             this.pool.query(query, (err, res) => {
                 if (err) {
