@@ -5,7 +5,7 @@ import { basename } from 'path';
 import { authorizeService } from '../../../services/authorize/authorizeService';
 import * as memcache from 'memory-cache';
 import { constants } from '../../../constants/constants';
-import { extractOrigin } from 'utils/commonUtils';
+import { extractOrigin } from '../../../utils/commonUtils';
 
 const filename = basename(__filename);
 
