@@ -1,6 +1,6 @@
 
 import { Request, Response } from 'express';
-import { grubberLogger } from 'logger';
+import { grubberLogger } from '../../../logger';
 import { basename } from 'path';
 import { authorizeService } from 'services/authorize/authorizeService';
 import * as memcache from 'memory-cache';
