@@ -42,7 +42,7 @@ class MySqlService {
         return new Promise<any>((resolve, reject) => {
             const queryString = 'SELECT * FROM USERS WHERE ?? = ??';
 
-            const query = format(queryString, [userId, idType]);
+            const query = format(queryString, [idType, userId]);
             grubberLogger.debug('Query for user ', { filename, obj: query });
 
             this.pool.query(query, (err, res) => {
