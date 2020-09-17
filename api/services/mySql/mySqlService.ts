@@ -50,8 +50,19 @@ class MySqlService {
                     grubberLogger.error('Error retrieving user ', { filename, obj: err });
                     reject(err);
                 }
-                grubberLogger.debug('Retrieved user from database ', { filename, obj: res});
-                resolve(res[0]);
+                if (res && res.length) {
+                    grubberLogger.debug('Retrieved user from database ', { filename, obj: res});
+                    resolve(res[0]);
+                } else {
+                    grubberLogger.error('User not found ', { filename });
+                    reject({
+                        status: 404,
+                        error: {
+                            error: 'user_not_found',
+                            error_message: 'Account with the given user name was not found'
+                        }
+                    });
+                }
             });
         });
     }
