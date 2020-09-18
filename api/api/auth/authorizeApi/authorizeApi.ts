@@ -20,7 +20,7 @@ export const authorizeApi = async (req: Request, res: Response) => {
             userIp: req.ip
         };
         memcache.put(response.sessionId, sessionObj, response.ttl);
-        res.cookie(constants.SESSION_COOKIE, response.ttl, {
+        res.cookie(constants.SESSION_COOKIE, response.sessionId, {
             path: '/',
             maxAge: response.ttl,
             httpOnly: true,
