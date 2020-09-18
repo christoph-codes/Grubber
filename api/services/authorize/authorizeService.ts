@@ -16,9 +16,9 @@ class AuthorizeService {
             const user = await mySqlService.retrieveUser(req.userName, 'user_name');
             grubberLogger.debug('Response from mySqlService is ', { filename, obj: user });
             // tslint:disable-next-line: max-line-length
-            grubberLogger.debug('User info: ', { filename, obj: {pass: user.user_pass, hash: user.user_hash, inputPass: req.password, constHash: constants.SALT_VALUE}});
+            grubberLogger.debug('User info: ', { filename, obj: {pass: user.user_pass, hash: user.user_hash, inputPass: req.userPass, constHash: constants.SALT_VALUE}});
             // tslint:disable-next-line: max-line-length
-            if (AES.decrypt(user.user_pass, user.user_hash).toString(enc.Utf8) === AES.decrypt(req.password, constants.SALT_VALUE).toString(enc.Utf8)) {
+            if (AES.decrypt(user.user_pass, user.user_hash).toString(enc.Utf8) === AES.decrypt(req.userPass, constants.SALT_VALUE).toString(enc.Utf8)) {
                 const sessionId = v4();
                 return {
                     userId: user.user_id,
