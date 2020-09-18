@@ -16,7 +16,7 @@
     "build": "tsc",
     "test": "npm run lint && nyc mocha",
     "lint": "./node_modules/.bin/tslint -p tsconfig.json",
-    "start": "npm run build && node ./dist/index.js"
+    "start": "rm -rf dist && npm run build && node ./dist/index.js"
   },
   "dependencies": {
     "@types/node": "12.12.2",
