@@ -15,6 +15,8 @@ info:
 tags:
 - name: Health Check
   description: Health Check API
+- name: Authentication
+  description: APIs related to authenticated sessions
 
 paths:
   /healthcheck:
@@ -39,7 +41,44 @@ paths:
           description: request timed out
           schema:
             $ref: '#/definitions/503'
-          
+            
+  /api/auth/authorize:
+    post:
+      tags: 
+      - Authentication
+      summary: Send username and password to validate against the database. On success, returns the user's user id and session cookie.
+      operationId: authorize
+      description: Used for log in
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: requestBody
+          description: Request JSON body containing userName, userPass, and keepMeLoggedIn
+          schema:
+            $ref: '#/definitions/AuthorizeRequest'
+      responses:
+        200: 
+          description: Successful authentication
+          headers:
+            Set-Cookie:
+              type: string
+              description: Sets the cookie for the session id, G_SESSION_ID
+          schema:
+            $ref: '#/definitions/AuthorizeResponse'
+        400:
+          description: User sent the wrong password
+          schema: 
+            $ref: '#/definitions/AuthorizeWrongPassword'
+        404:
+          description: The user was not found
+          schema:
+            $ref: '#/definitions/UserNotFound'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+
 definitions:
   HealthCheckResponse:
     type: object
@@ -47,6 +86,42 @@ definitions:
       status:
         type: string
         example: app is healthy
+  AuthorizeRequest:
+    type: object
+    properties:
+        userName:
+          type: string
+          example: user
+        userPass:
+          type: string
+          example: password (encrypted using AES)
+        keepMeLoggedIn:
+          type: boolean
+          example: false
+  AuthorizeResponse:
+    type: object
+    properties:
+      userId: 
+        type: number
+        example: 111111
+  AuthorizeWrongPassword:
+    type: object
+    properties:
+      error: 
+        type: string
+        example: password_not_match
+      error_message: 
+        type: string
+        example: The password provided is incorrect
+  UserNotFound:
+    type: object
+    properties:
+      error:
+        type: string
+        example: user_not_found
+      error_message:
+        type: string
+        example: Account with the given user name was not found
   418:
     type: object
     properties:
