@@ -1,5 +1,5 @@
 
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 export const extractOrigin = (req: Request) => {
     const origin: string = req.headers['origin'].toString() || req.headers['referer'];
@@ -8,4 +8,16 @@ export const extractOrigin = (req: Request) => {
     } else {
         return origin.substring(0, origin.indexOf('.com') + 4).replace('http://', '.');
     }
-}
+};
+
+export const apiErrorResponse = (error: any, res: Response) => {
+    if (typeof error === 'object' && error.status && error.error) {
+        res.status(error.status).send(error.error);
+    } else {
+        if (typeof error === 'string') {
+            res.status(500).send({ error_message: error });
+        } else {
+            res.status(500).send({ error_message: 'An error occurred in the server' });
+        }
+    }
+};

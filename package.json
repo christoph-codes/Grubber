@@ -1,0 +1,20 @@
+{
+  "name": "grubber",
+  "version": "1.0.0",
+  "scripts": {
+    "test:api": "cd api && npm run test",
+    "test:app": "cd app && npm run test",
+    "run:api": "cd api && npm start",
+    "run:app": "cd app && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkcwebdev/Grubber.git"
+  },
+  "author": "Ya boyz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkcwebdev/Grubber/issues"
+  },
+  "homepage": "https://github.com/tkcwebdev/Grubber#readme"
+}
