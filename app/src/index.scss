@@ -15,6 +15,8 @@ $tertiarylt: #CEF5EA;
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'DM Serif Text', serif;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 p, li, input, textarea, label, ::placeholder {
   font-family: 'Roboto', sans-serif;
@@ -22,27 +24,21 @@ p, li, input, textarea, label, ::placeholder {
 }
 h1 {
   font-size: 2.6em;
-  line-height: 1.638em;
 }
 h2 {
   font-size: 2.056em;
-  line-height: 1.676em;
 }
 h3 {
   font-size: 1.611em;
-  line-height: 1.759em;
 }
 h4 {
   font-size: 1.278em;
-  line-height: 1.826em;
 }
 h5 {
   font-size: 1em;
-  line-height: 1.944em;
 }
 h6 {
   font-size: 0.778em;
-  line-height: 2.071em;
 }
 
 .page-container {
