@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
+// Color Variables
+$primary: #4A31C1;
+$primarymd: #A498E0;
+$primarylt: #DBD6F3;
+$primarywt: #F5F4FF;
+$secondary: #DBA74C;
+$secondarymd: #EDD3A6;
+$secondarylt: #F8EDDB;
+$tertiary: #08CD95;
+$tertiarymd: #84E6CA;
+$tertiarylt: #CEF5EA;
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'DM Serif Text', serif;
+}
+p, li, input, textarea, label, ::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+h1 {
+  font-size: 2.6em;
+  line-height: 1.638em;
+}
+h2 {
+  font-size: 2.056em;
+  line-height: 1.676em;
+}
+h3 {
+  font-size: 1.611em;
+  line-height: 1.759em;
+}
+h4 {
+  font-size: 1.278em;
+  line-height: 1.826em;
+}
+h5 {
+  font-size: 1em;
+  line-height: 1.944em;
+}
+h6 {
+  font-size: 0.778em;
+  line-height: 2.071em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.purplebg {
+  background: $primary;
+  h1,h2,h3,h4,h5,h6,p,li,small {
+    color: white;
+  }
+}
+
+.full-height {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    max-width: 60%;
+    width: 100%;
+  }
+}
+
+input.form-control {
+  border-radius: 30px !important;
+  border: none;
+  &::placeholder {
+      color: #A498E0;
+  }
 }
