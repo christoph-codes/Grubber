@@ -1,30 +1,33 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import './EmailInput.scss';
 
-export default function EmailInput({ handler }) {
-    const [feedback, setFeedback] = useState('');
+export default function EmailInput({ placeholder, handler, feedback }) {
 
     const sendValue = (e) => {
-        if(e.target.checkValidity) {
-            setFeedback(e.target.validationMessage)
+        let val = e.target.value;
+        if(val.length > 0) {
+            let regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            if(regex.test(val)) {
+                // TODO: Check to see whether the value exists in the database already
+                feedback('')
+            } else {
+                feedback('You must enter a valid email.')
+            }
         } else {
-            setFeedback('');
+            feedback('You must enter an email address.')
         }
-        handler(e.target.value)
+        handler(val);
     }
 	return (
 		<Fragment>
 			<InputGroup className='EmailInput' size='lg'>
 				<FormControl
-					placeholder="Email Address"
+					placeholder={placeholder}
 					onChange={sendValue}
                     type='email'
-                    pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"
-                    title="You must enter a valid email"
 				/>
 			</InputGroup>
-            <small className="text-center">{feedback}</small>
 		</Fragment>
 	);
 }

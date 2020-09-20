@@ -1,15 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import './TextInput.scss'
 
-export default function TextInput({ placeholder, handler}) {
-    const [feedback, setFeedback] = useState('');
+export default function TextInput({ placeholder, handler, feedback}) {
 
     const sendValue = (e) => {
         if(e.target.checkValidity) {
-            setFeedback(e.target.validationMessage)
+            feedback(e.target.validationMessage)
         } else {
-            setFeedback('');
+            feedback('');
         }
         handler(e.target.value)
     }
@@ -20,10 +19,8 @@ export default function TextInput({ placeholder, handler}) {
 					placeholder={placeholder}
 					onChange={sendValue}
                     type='text'
-                    title="You must enter a valid email"
 				/>
 			</InputGroup>
-            <small className="text-center">{feedback}</small>
 		</Fragment>
     );
 }

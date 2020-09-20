@@ -66,7 +66,30 @@ h6 {
 input.form-control {
   border-radius: 30px !important;
   border: none;
+  margin-bottom: 20px !important;
   &::placeholder {
       color: #A498E0;
   }
+}
+.btn-primary {
+  color: #fff;
+  background-color: $secondary;
+  border-color: none;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  min-width: 60%;
+  max-width: 100%;
+  transition: 0.3s;
+  height: calc(1.5em + 1rem + 2px);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  box-sizing: border-box;
+  &:hover {
+    background-color: $secondarymd;
+  }
+}
+.feedabck {
+  margin-bottom: 20px;
+  text-align: center;
 }
