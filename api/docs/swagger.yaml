@@ -1,0 +1,144 @@
+swagger: '2.0'
+info:
+  description: Grubber API
+  version: 1.0.0
+  title: Grubber API
+  # put the contact info for your development or API team
+  contact:
+    email: weneedanemail@domain.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: Health Check
+  description: Health Check API
+- name: Authentication
+  description: APIs related to authenticated sessions
+
+paths:
+  /healthcheck:
+    get:
+      tags:
+      - Health Check
+      summary: Returns a 200 status code if service is up and running
+      operationId: healthCheck
+      description: Used to determine if services are up and running
+      produces:
+      - application/json
+      responses:
+        200:
+          description: services are healthy
+          schema:
+            $ref: '#/definitions/HealthCheckResponse'
+        418:
+          description: if you are markus
+          schema:
+            $ref: '#/definitions/418'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+            
+  /api/auth/authorize:
+    post:
+      tags: 
+      - Authentication
+      summary: Send username and password to validate against the database. On success, returns the user's user id and session cookie.
+      operationId: authorize
+      description: Used for log in
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: requestBody
+          description: Request JSON body containing userName, userPass, and keepMeLoggedIn
+          schema:
+            $ref: '#/definitions/AuthorizeRequest'
+      responses:
+        200: 
+          description: Successful authentication
+          headers:
+            Set-Cookie:
+              type: string
+              description: Sets the cookie for the session id, G_SESSION_ID
+          schema:
+            $ref: '#/definitions/AuthorizeResponse'
+        400:
+          description: User sent the wrong password
+          schema: 
+            $ref: '#/definitions/AuthorizeWrongPassword'
+        404:
+          description: The user was not found
+          schema:
+            $ref: '#/definitions/UserNotFound'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+
+definitions:
+  HealthCheckResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        example: app is healthy
+  AuthorizeRequest:
+    type: object
+    properties:
+        userName:
+          type: string
+          example: user
+        userPass:
+          type: string
+          example: password (encrypted using AES)
+        keepMeLoggedIn:
+          type: boolean
+          example: false
+  AuthorizeResponse:
+    type: object
+    properties:
+      userId: 
+        type: number
+        example: 111111
+  AuthorizeWrongPassword:
+    type: object
+    properties:
+      error: 
+        type: string
+        example: password_not_match
+      error_message: 
+        type: string
+        example: The password provided is incorrect
+  UserNotFound:
+    type: object
+    properties:
+      error:
+        type: string
+        example: user_not_found
+      error_message:
+        type: string
+        example: Account with the given user name was not found
+  418:
+    type: object
+    properties:
+      error:
+        type: string
+        example: im_a_teapot
+      error_message:
+        type: string
+        example: This error message body is short and stout
+  503:
+    type: object
+    properties:
+      error:
+        type: string
+        example: request_timeout
+# Added by API Auto Mocking Plugin
+host: ec2-54-190-46-230.us-west-2.compute.amazonaws.com
+basePath: /
+schemes:
+ - http
