@@ -43,6 +43,18 @@ export const checkIp = (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+export const validateCsrf = (req: Request, res: Response, next: NextFunction) => {
+    if (req.headers['csrf-token']) {
+        if (tokens.verify(secret, req.headers['csrf-token'])) {
+            next();
+        } else {
+            buildErrorResponse(res, 403, 'forbidden');
+        }
+    } else {
+        buildErrorResponse(res, 403, 'forbidden');
+    }
+}
+
 export const logRequest = (req: Request, _res: Response, next: NextFunction) => {
     const reqObj = {
         method: req.method,
@@ -54,4 +66,36 @@ export const logRequest = (req: Request, _res: Response, next: NextFunction) => 
     };
     grubberLogger.access('Request received: ', { filename, obj: JSON.stringify(reqObj) });
     next();
+};
+
+export const requestValidator = (req: Request, reqBody: string[], reqHeader: string[]) => {
+
+    const missing = [];
+    
+    if (reqBody) {
+        reqBody.forEach(prop => {
+            if (!req.body.hasOwnProperty(prop)) {
+                missing.push(prop);
+            }
+        });
+    }
+    if (reqHeader) {
+        reqHeader.forEach(prop => {
+            if (!req.headers.hasOwnProperty(prop)) {
+                missing.push(prop);
+            }
+        });
+    }
+
+    if (missing.length > 0) {
+        throw {
+            status: 400,
+            error: {
+                error: 'missing_params',
+                error_message: 'request is missing required params: ' + missing.toString
+            }
+        }
+    }
+
+    return true;
 };
