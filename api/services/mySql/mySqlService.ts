@@ -50,7 +50,6 @@ class MySqlService {
             const queryString = 'SELECT * FROM USERS WHERE ?? = ?';
 
             const query = format(queryString, [idType, userId]);
-            grubberLogger.debug('Query for user from ' + getEnvVariable('GRUBBER_DBHOST'), { filename, obj: query });
 
             this.pool.query(query, (err, res) => {
                 if (err) {
@@ -71,6 +70,22 @@ class MySqlService {
                     });
                 }
             });
+        });
+    }
+
+    public retrieveZipCodes = (zipOne: number, zipTwo: number) => {
+        return new Promise<any>((resolve, reject) => {
+            const queryString = 'SELECT latitude, longitude FROM ZIPCODES WHERE zip_code = ? OR zip_code = ?';
+
+            const query = format(queryString, [zipOne, zipTwo]);
+            
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error retrieving zip codes ', { filename, obj: err });
+                    reject(err);
+                }
+                resolve(res);
+            })
         });
     }
 

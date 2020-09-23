@@ -17,6 +17,8 @@ tags:
   description: Health Check API
 - name: Authentication
   description: APIs related to authenticated sessions
+- name: Profile
+  description: APIs related to user profile
 
 paths:
   /healthcheck:
@@ -78,6 +80,31 @@ paths:
           description: request timed out
           schema:
             $ref: '#/definitions/503'
+            
+  /api/profile/distance:
+    post:
+      tags:
+      - Profile
+      summary: Returns the distance between two zip codes in either miles or km.
+      operationId: distance
+      description: Get distance
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: requestBody
+          description: Request JSON containing both zip codes and the unit of measure (miles or km)
+          schema:
+            $ref: '#/definitions/DistanceRequest'
+      responses:
+        200:
+          description: Successful calculation
+          schema:
+            $ref: '#/definitions/DistanceResponse'
+        503:
+          description: Response timed out
+          schema:
+            $ref: '#/definitions/503'
 
 definitions:
   HealthCheckResponse:
@@ -113,6 +140,24 @@ definitions:
       error_message: 
         type: string
         example: The password provided is incorrect
+  DistanceRequest:
+    type: object
+    properties:
+      zipOne:
+        type: number
+        example: 89102
+      zipTwo:
+        type: number
+        example: 98056
+      measure:
+        type: string
+        example: miles
+  DistanceResponse:
+    type: object
+    properties:
+      distance:
+        type: string
+        example: 754 miles
   UserNotFound:
     type: object
     properties:
