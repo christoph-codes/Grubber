@@ -50,7 +50,7 @@ export default function CreateAccount(props) {
 								/>
 								<EmailInput
 									feedback={setFeedback}
-									placeholder='Enter Email Address'
+									placeholder='Email Address'
 									handler={setEmail}
 								/>
 								<PasswordInput
@@ -64,8 +64,8 @@ export default function CreateAccount(props) {
 									handler={setConfirmPassword}
 								/>
 								{feedback ? (
-									<div className='feedabck'>
-										<small className='text-center'>{feedback}</small>
+									<div className='feedback'>
+										<small>{feedback}</small>
 									</div>
 								) : null}
 								<Button onClick={createAccount}>Create Account</Button>
