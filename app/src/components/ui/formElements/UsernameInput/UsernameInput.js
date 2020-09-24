@@ -14,7 +14,7 @@ export default function UsernameInput({ placeholder, handler, feedback}) {
                     setValue(val)
                     feedback('')
             } else {
-                feedback('Your unique username must be between 6 to 16 characters. It may include dashes or underscores.')
+                feedback('Your unique username must be between 6 to 16 characters and must not included any special characters. Get Creative!')
             }
         } else {
             feedback('You must enter a unique username.')

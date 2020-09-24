@@ -7,17 +7,8 @@ export default function LocationInput({ placeholder, handler, feedback }) {
 
   const googleApiKey = "AIzaSyA43VuDn_6O3Z16WNRGrz1QL_vIl3JMqwc";
 
-//   const sendValue = e => {
-//     let val = e.target.value;
-//     setValue(val);
-//     if (val.length > 0) {
-//       feedback("");
-//     } else {
-//       feedback("You must enter a unique username.");
-//     }
-//   };
   useEffect(() => {
-    handler(value.label);
+    handler(value);
   });
 
   return (
@@ -47,11 +38,11 @@ export default function LocationInput({ placeholder, handler, feedback }) {
               fontWeight: 'normal',
               lineHeight: 1.5,
               fontFamily: 'Roboto',
-              color: '#A498E0'
+              color: '#A498E0',
+              cursor: 'pointer',
               }),
             input: (provided) => ({
               ...provided,
-              placeholder: "Enter City, State, or Zip Code",
               color: '#4A31C1',
             }),
             option: (provided) => ({
