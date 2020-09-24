@@ -5,7 +5,7 @@ import logowhite from '../../../assets/grub-logo-white-lg.svg';
 
 import EmailInput from '../../ui/formElements/EmailInput/EmailInput';
 import UsernameInput from '../../ui/formElements/UsernameInput/UsernameInput';
-import TextInput from '../../ui/formElements/TextInput/TextInput';
+import LocationInput from '../../ui/formElements/LocationInput/LocationInput';
 import PasswordInput from '../../ui/formElements/PasswordInput/PasswordInput';
 
 export default function CreateAccount(props) {
@@ -51,9 +51,8 @@ export default function CreateAccount(props) {
 									handler={setUsername}
 									required={true}
 								/>
-								<TextInput
+								<LocationInput
 									feedback={setFeedback}
-									placeholder='Location'
 									handler={setLocation}
 								/>
 								<EmailInput
