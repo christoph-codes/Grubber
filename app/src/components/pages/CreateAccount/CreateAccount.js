@@ -4,6 +4,7 @@ import './CreateAccount.scss';
 import logowhite from '../../../assets/grub-logo-white-lg.svg';
 
 import EmailInput from '../../ui/formElements/EmailInput/EmailInput';
+import UsernameInput from '../../ui/formElements/UsernameInput/UsernameInput';
 import TextInput from '../../ui/formElements/TextInput/TextInput';
 import PasswordInput from '../../ui/formElements/PasswordInput/PasswordInput';
 
@@ -16,14 +17,20 @@ export default function CreateAccount(props) {
     const [feedback, setFeedback] = useState('');
 
 	const createAccount = () => {
-		const accountDetails = {
-			email,
-			username,
-			location,
-			password,
-			confirmPassword,
-		};
-		console.log(accountDetails);
+		if(feedback !== '') {
+			const accountDetails = {
+				email,
+				username,
+				location,
+				password,
+				confirmPassword,
+			};
+			console.log(feedback);
+			console.log(accountDetails);
+		} else {
+			setFeedback('All fields must be filled out.')
+		}
+		
 	};
 	return (
 		<div className='CreateAccount'>
@@ -38,10 +45,11 @@ export default function CreateAccount(props) {
 						<div className='full-height purplebg'>
 							<div className='content'>
 								<h1>Create Account</h1>
-								<TextInput
+								<UsernameInput
 									feedback={setFeedback}
 									placeholder='Username'
 									handler={setUsername}
+									required={true}
 								/>
 								<TextInput
 									feedback={setFeedback}
@@ -52,16 +60,19 @@ export default function CreateAccount(props) {
 									feedback={setFeedback}
 									placeholder='Email Address'
 									handler={setEmail}
+									required={true}
 								/>
 								<PasswordInput
 									feedback={setFeedback}
 									placeholder='Password'
 									handler={setPassword}
+									required={true}
 								/>
 								<PasswordInput
 									feedback={setFeedback}
 									placeholder='Confirm Password'
 									handler={setConfirmPassword}
+									required={true}
 								/>
 								{feedback ? (
 									<div className='feedback'>

@@ -5,16 +5,17 @@ import './TextInput.scss'
 export default function TextInput({ placeholder, handler, feedback}) {
 
     const sendValue = (e) => {
-        if(e.target.checkValidity) {
-            feedback(e.target.validationMessage)
+        let val = e.target.value;
+        if(val.length > 0) {
+                feedback('')
         } else {
-            feedback('');
+            feedback('You must fill in the field.')
         }
-        handler(e.target.value)
+        handler(val);
     }
 	return (
 		<Fragment>
-			<InputGroup className='EmailInput' size='lg'>
+			<InputGroup className='TextInput' size='lg'>
 				<FormControl
 					placeholder={placeholder}
 					onChange={sendValue}
