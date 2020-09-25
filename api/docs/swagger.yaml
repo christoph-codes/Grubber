@@ -144,10 +144,10 @@ definitions:
     type: object
     properties:
       zipOne:
-        type: number
+        type: string
         example: 89102
       zipTwo:
-        type: number
+        type: string
         example: 98056
       measure:
         type: string
