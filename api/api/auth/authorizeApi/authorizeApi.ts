@@ -6,11 +6,13 @@ import { authorizeService } from '../../../services/authorize/authorizeService';
 import * as memcache from 'memory-cache';
 import { constants } from '../../../constants/constants';
 import { extractOrigin, apiErrorResponse } from '../../../utils/commonUtils';
+import { requestValidator } from '../../../middlewares';
 
 const filename = basename(__filename);
 
 export const authorizeApi = async (req: Request, res: Response) => {
     try {
+        requestValidator(req, ['userName', 'userPass'], []);
         grubberLogger.debug('Request for Authorize API ', { filename, obj: req.body });
         const response = await authorizeService.invoke(req.body);
         grubberLogger.debug('Response from authorizeService ', { filename, obj: response });
