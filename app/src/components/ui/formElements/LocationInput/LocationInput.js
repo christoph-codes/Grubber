@@ -17,7 +17,7 @@ export default function LocationInput({ placeholder, handler, feedback }) {
         
         apiKey={googleApiKey}
         selectProps={{
-          placeholder: "Enter City, State, or Zip Code",
+          placeholder: "City, State, or Zip Code",
           value,
           onChange: setValue,
           styles: {
