@@ -15,6 +15,15 @@ class DistanceService {
             grubberLogger.debug('Distance service request is ', { filename, obj: req });
             const zipCodes = await mySqlService.retrieveZipCodes(req.zipOne, req.zipTwo);
             grubberLogger.debug('Response from database ', { filename, obj: zipCodes });
+            if (req.measure !== 'miles' || req.measure !== 'km') {
+                throw {
+                    status: 400,
+                    error: {
+                        error: 'bad_request',
+                        error_message: 'The measure ' + req.measure + ' is not supported.'
+                    }
+                }
+            }
             return this.getDistanceMiles(zipCodes, req.measure);
         } catch (error) {
             grubberLogger.error('Error in distanceService ', { filename, obj: error });
