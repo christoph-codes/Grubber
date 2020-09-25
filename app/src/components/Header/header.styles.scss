@@ -23,7 +23,14 @@
     
         .option {
           padding: 10px 15px;
+          text-align: left;
+          font: normal normal bold 18px/24px Roboto;
+          letter-spacing: 0px;
+          color: #4A31C1;
           cursor: pointer;
+        }
+        .option:hover{
+          color: #DBA74C;
         }
     }
 }

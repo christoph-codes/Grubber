@@ -1,25 +1,40 @@
 import React from 'react';
 import './header.styles.scss';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import logo from '../../assets/grubber_logo.svg';
 
 const Header = () => (
     <div className='header'>
-        <Link className='logo-container' to='/'>
+        <NavLink className='logo-container' to='/'>
             <img src={logo} className='logo' alt='Grubber is the future.'/>
-        </Link>
+        </NavLink>
         <div className='options'>
-            <Link className='option' to='/'>
-                HOME
-            </Link>
-            <Link className='option' to='/login'>
-                LOGIN
-            </Link>
-            <Link className='option' to='/create-account'>
-                CREATE ACCOUNT
-            </Link>
+            <NavLink 
+                className='option'
+                activeStyle={{
+                    color: "#DBA74C"
+                }}
+                exact to='/'>
+                Home
+            </NavLink>
+            <NavLink 
+                className='option'
+                activeStyle={{
+                    color: "#DBA74C"
+                }}
+                to='/login'>
+                Login
+            </NavLink>
+            <NavLink 
+                className='option'
+                activeStyle={{
+                    color: "#DBA74C"
+                }}
+                to='/create-account'>
+                Create Account
+            </NavLink>
         </div>
     </div>
 )
