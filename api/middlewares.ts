@@ -1,6 +1,10 @@
 
 import { Request, Response, NextFunction } from 'express';
 import { constants } from './constants/constants';
+import { basename } from 'path';
+import { grubberLogger } from './logger'
+
+const filename = basename(__filename);
 
 // tslint:disable-next-line: no-var-requires
 const tokens = require('csrf')();
@@ -37,4 +41,17 @@ export const checkIp = (req: Request, res: Response, next: NextFunction) => {
     } else {
         next();
     }
-}
+};
+
+export const logRequest = (req: Request, _res: Response, next: NextFunction) => {
+    const reqObj = {
+        method: req.method,
+        path: req.path,
+        body: req.body,
+        ip: req.ip,
+        headers: req.headers,
+        params: req.params
+    };
+    grubberLogger.access('Request received: ', { filename, obj: JSON.stringify(reqObj) });
+    next();
+};
