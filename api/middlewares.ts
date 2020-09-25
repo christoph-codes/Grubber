@@ -9,7 +9,7 @@ const filename = basename(__filename);
 
 // tslint:disable-next-line: no-var-requires
 const tokens = require('csrf')();
-const secret = constants.CSRF_SECRET;
+const secret = tokens.secretSync();
 
 const buildErrorResponse = (res: Response, code: number, errorCode: string, errorMessage?: string) => {
     res.status(code).send({
