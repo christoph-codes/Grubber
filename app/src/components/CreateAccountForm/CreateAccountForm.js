@@ -21,44 +21,47 @@ export default function CreateAccountForm(props) {
         email,
         username,
         location,
-        password,
-        confirmPassword
+        password
       };
-      console.log(feedback);
+      // TODO: Send account details to database
       console.log(accountDetails);
     } else {
       setFeedback("All fields must be filled out.");
     }
   };
 
-  const validateEmail = () => {
+  useEffect(() => {
     // Check database for existing email record
-    console.log(email)
-  };
-  const validateUsername = () => {
-    // Check database for unique username
-    console.log(username)
-  };
-  const validatePasswords = () => {
-    // Ensure the passwords match
-    if(password === confirmPassword) {
-        console.log(`${password} + 'is good!`)
+    if(email.length >= 6) {
+      setFeedback('');
     } else {
-        console.log(`${password} & ${confirmPassword} do not match!`);
+      setFeedback('Please enter a valid email to create your account.');
     }
-  };
+  }, [email]);
 
   useEffect(() => {
-    validateEmail();
-  });
+    // Check database for unique username
+    if(username.length > 0) {
+      setFeedback('');
+    } else {
+      setFeedback('Please enter a unique username to create your account.');
+    }
+  }, [username]);
 
   useEffect(() => {
-    validateUsername();
-  });
-
-  useEffect(() => {
-    validatePasswords();
-  });
+    // Ensure the passwords match
+    if(password && confirmPassword) {
+      if(password === confirmPassword) {
+        setFeedback('');
+      } else {
+          setFeedback('Passwords do not match.');
+      }
+    } else {
+      if(confirmPassword.length > 0) {
+        setFeedback('Please confirm your password.');
+      }
+    }
+  }, [password, confirmPassword]);
 
   return (
     <Col className="CreateAccountForm">

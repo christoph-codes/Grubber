@@ -92,3 +92,11 @@ input.form-control {
 .feedback {
   margin-bottom: 20px;
 }
+
+@media(max-width: 767px) {
+  .full-height {
+    .content {
+      max-width: 85%;
+    }
+  }
+}

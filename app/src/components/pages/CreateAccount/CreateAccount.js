@@ -9,12 +9,12 @@ export default function CreateAccount(props) {
 		<div className='CreateAccount'>
 			<Container fluid='true'>
 				<Row noGutters>
-					<Col>
+					<Col md={true} sm={12}>
 						<div className='create-account-img'>
 							<img src={logowhite} alt='Create a Grubber Account Today!' />
 						</div>
 					</Col>
-					<Col>
+					<Col md={true} sm={12}>
 						<CreateAccountForm/>
 					</Col>
 				</Row>

@@ -16,3 +16,11 @@
         text-align: left;
     }
 }
+
+@media(max-width: 767px) {
+	.CreateAccount {
+		.create-account-img {
+		height: 70vh;
+		}
+	}
+}
