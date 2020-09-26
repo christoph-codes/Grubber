@@ -1,25 +1,35 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap");
 // Color Variables
-$primary: #4A31C1;
-$primarymd: #A498E0;
-$primarylt: #DBD6F3;
-$primarywt: #F5F4FF;
-$secondary: #DBA74C;
-$secondarymd: #EDD3A6;
-$secondarylt: #F8EDDB;
-$tertiary: #08CD95;
-$tertiarymd: #84E6CA;
-$tertiarylt: #CEF5EA;
+$primary: #4a31c1;
+$primarymd: #a498e0;
+$primarylt: #dbd6f3;
+$primarywt: #f5f4ff;
+$secondary: #dba74c;
+$secondarymd: #edd3a6;
+$secondarylt: #f8eddb;
+$tertiary: #08cd95;
+$tertiarymd: #84e6ca;
+$tertiarylt: #cef5ea;
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'DM Serif Text', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Serif Text", serif;
   line-height: 1;
   margin-bottom: 20px;
 }
-p, li, input, textarea, label, ::placeholder {
-  font-family: 'Roboto', sans-serif;
+p,
+li,
+input,
+textarea,
+label,
+::placeholder {
+  font-family: "Roboto", sans-serif;
   font-weight: lighter;
 }
 h1 {
@@ -45,9 +55,24 @@ h6 {
   width: 100%;
 }
 
+.primary {
+  color: $primary;
+}
+.secondary {
+  color: $secondary;
+}
+
 .purplebg {
   background: $primary;
-  h1,h2,h3,h4,h5,h6,p,li,small {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  small {
     color: white;
   }
 }
@@ -60,6 +85,7 @@ h6 {
   .content {
     max-width: 60%;
     width: 100%;
+    text-align: left;
   }
 }
 
@@ -68,7 +94,7 @@ input.form-control {
   border: none;
   margin-bottom: 20px !important;
   &::placeholder {
-      color: #A498E0;
+    color: #a498e0;
   }
 }
 .btn-primary {
@@ -93,10 +119,25 @@ input.form-control {
   margin-bottom: 20px;
 }
 
-@media(max-width: 767px) {
+.half-img {
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-width: 70%;
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+  }
+}
+
+@media (max-width: 767px) {
   .full-height {
     .content {
       max-width: 85%;
     }
+  }
+  .half-img {
+    height: 70vh;
   }
 }
