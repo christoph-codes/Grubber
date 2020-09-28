@@ -1,5 +1,5 @@
 
-import { createPool, format, Pool } from 'mysql';
+import { createPool, format, Pool, PoolConfig } from 'mysql';
 import { getEnvVariable } from '../../env';
 import { grubberLogger } from '../../logger';
 import { basename } from 'path';
@@ -12,11 +12,13 @@ class MySqlService {
     private pool: Pool;
 
     public activate = () => {
-        const sessionOpts = {
+        const sessionOpts: PoolConfig = {
             host: getEnvVariable('GRUBBER_DBHOST'),
             user: getEnvVariable('GRUBBER_DBUSER'),
             password: getEnvVariable('GRUBBER_DBPASS'),
             database: getEnvVariable('GRUBBER_DB'),
+            dateStrings: true,
+            supportBigNumbers: true
         }
         grubberLogger.debug('Creating pool with configs ', { filename, obj: sessionOpts });
 
@@ -24,14 +26,18 @@ class MySqlService {
     };
 
     public createUser = (user: any) => {
-        return new Promise((resolve, reject) => {
-            const queryString = 'INSERT INTO USERS (user_name, user_pass, user_hash, created_on) VALUES ' +
-                '(?, ?, ?, ?)';
+        return new Promise<any>((resolve, reject) => {
+            const queryString = 'INSERT INTO USERS ' +
+                '(user_name, user_pass, user_hash, first_name, last_name, user_gender, favorite_food, user_email, location, user_description, created_on, last_updated) VALUES ' +
+                '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
             const userHash = this.randomString();
             const userPass = AES.encrypt(user.userPass, userHash);
+            const currDate = new Date();
 
-            const query = format(queryString, [user.userName, userPass, userHash, new Date()]);
+            const query = format(queryString,
+                // tslint:disable-next-line: max-line-length
+                [user.userName, userPass, userHash, user.firstName, user.lastName, user.gender, user.favoriteFood, user.email, user.location, user.description, currDate, currDate]);
 
             this.pool.query(query, (err, res) => {
                 if (err) {
@@ -40,7 +46,7 @@ class MySqlService {
                 }
 
                 grubberLogger.debug('Added user into database', { filename, obj: res });
-                resolve('S');
+                resolve(res);
             });
         });
     };
