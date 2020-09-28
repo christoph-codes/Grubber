@@ -1,17 +1,15 @@
-/*
-    TODO: Change styling once we get styling from mock-ups.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
+
 .header {
     height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
 
     .logo-container {
         height: 100%;
-        width: 70px;
-        padding: 25px;
+        width: 10.5rem;
+        padding: 15px;
       }
 
     .options {
@@ -24,7 +22,8 @@
         .option {
           padding: 10px 15px;
           text-align: left;
-          font: normal normal bold 18px/24px Roboto;
+          text-decoration: none;
+          font: normal normal bold 18px/24px 'Roboto', sans-serif;
           letter-spacing: 0px;
           color: #4A31C1;
           cursor: pointer;

@@ -8,12 +8,14 @@ import SplashScreen from '../SplashScreen/SplashScreen';
 import CreateAccount from '../pages/CreateAccount/CreateAccount';
 import HomeLogin from '../pages/HomeLogin/HomeLogin';
 
+import Header from '../Header/header.component';
+
 function App() {
 	return (
 		<Router>
 			<div className='App'>
-        {/* Placeholder for header */}
         <div className="page-container">
+        <Header />
         <Route path='/' exact component={SplashScreen} />
 		<Route path='/home' exact component={HomeLogin} />
 		<Route path='/create-account' component={CreateAccount} />
