@@ -10,7 +10,7 @@ export default function CreateAccount(props) {
 			<Container fluid='true'>
 				<Row noGutters>
 					<Col md={true} sm={12}>
-						<div className='create-account-img'>
+						<div className='half-img'>
 							<img src={logowhite} alt='Create a Grubber Account Today!' />
 						</div>
 					</Col>

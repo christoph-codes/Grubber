@@ -21,7 +21,7 @@ export default function PasswordInput({ placeholder, handler, feedback}) {
                     type='password'
                     title="Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character"
                     min="6"
-                    // pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
+                    autoComplete="new-password"
 				/>
 			</InputGroup>
 		</Fragment>
