@@ -1,13 +1,144 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap");
+// Color Variables
+$primary: #4a31c1;
+$primarymd: #a498e0;
+$primarylt: #dbd6f3;
+$primarywt: #f5f4ff;
+$secondary: #dba74c;
+$secondarymd: #edd3a6;
+$secondarylt: #f8eddb;
+$tertiary: #08cd95;
+$tertiarymd: #84e6ca;
+$tertiarylt: #cef5ea;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Serif Text", serif;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+p,
+li,
+input,
+textarea,
+label,
+::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+}
+h1 {
+  font-size: 2.6em;
+}
+h2 {
+  font-size: 2.056em;
+}
+h3 {
+  font-size: 1.611em;
+}
+h4 {
+  font-size: 1.278em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.778em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.page-container {
+  width: 100%;
+}
+
+.primary {
+  color: $primary;
+}
+.secondary {
+  color: $secondary;
+}
+
+.purplebg {
+  background: $primary;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  small,
+  a {
+    color: white;
+  }
+}
+
+.full-height {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    max-width: 60%;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+input.form-control {
+  border-radius: 30px !important;
+  border: none;
+  margin-bottom: 20px !important;
+  &::placeholder {
+    color: #a498e0;
+  }
+}
+.btn-primary {
+  color: #fff;
+  background-color: $secondary;
+  border-color: none;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  min-width: 60%;
+  max-width: 100%;
+  transition: 0.3s;
+  height: calc(1.5em + 1rem + 2px);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  box-sizing: border-box;
+  &:hover {
+    background-color: $secondarymd;
+  }
+}
+.feedback {
+  margin-bottom: 20px;
+}
+
+.half-img {
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-width: 70%;
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+  }
+}
+
+@media (max-width: 767px) {
+  .full-height {
+    .content {
+      max-width: 85%;
+    }
+  }
+  .half-img {
+    height: 70vh;
+  }
 }
