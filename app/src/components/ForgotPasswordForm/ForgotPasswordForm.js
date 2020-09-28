@@ -53,7 +53,7 @@ export default function ForgotPasswordForm(props) {
           <Button onClick={recover}>Recover Password</Button>
           <div className="additional-form-links">
             <Link to="/create-account">Create An Account?</Link>
-            <Link to="/home">Remember Your Password? Login</Link>
+            <Link to="/">Remember Your Password? Login</Link>
           </div>
         </div>
       </div>

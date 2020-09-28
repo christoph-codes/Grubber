@@ -17,10 +17,11 @@ function App() {
 			<div className='App'>
         <div className="page-container">
         <Header />
-        <Route path='/' exact component={SplashScreen} />
-		<Route path='/home' exact component={HomeLogin} />
+        
+		<Route path='/' exact component={HomeLogin} />
 		<Route path='/create-account' component={CreateAccount} />
 		<Route path='/forgot-password' component={ForgotPassword} />
+		<Route path='/splash' exact component={SplashScreen} />
         </div>
         {/* Placeholder for footer */}
 			</div>

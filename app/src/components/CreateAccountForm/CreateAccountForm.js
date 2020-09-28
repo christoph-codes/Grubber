@@ -80,7 +80,7 @@ export default function CreateAccountForm(props) {
           ) : null}
           <Button onClick={createAccount}>Create Account</Button>
           <div className="additional-form-links">
-            <Link to="/home">Already Have An Account? Login</Link>
+            <Link to="/">Already Have An Account? Login</Link>
           </div>
         </div>
       </div>

@@ -24,14 +24,6 @@ const Header = () => (
                 activeStyle={{
                     color: "#DBA74C"
                 }}
-                to='/login'>
-                Login
-            </NavLink>
-            <NavLink 
-                className='option'
-                activeStyle={{
-                    color: "#DBA74C"
-                }}
                 to='/create-account'>
                 Create Account
             </NavLink>
