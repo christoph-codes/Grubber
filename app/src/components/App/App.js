@@ -7,6 +7,7 @@ import './App.scss';
 import SplashScreen from '../SplashScreen/SplashScreen';
 import CreateAccount from '../pages/CreateAccount/CreateAccount';
 import HomeLogin from '../pages/HomeLogin/HomeLogin';
+import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' exact component={SplashScreen} />
 		<Route path='/home' exact component={HomeLogin} />
 		<Route path='/create-account' component={CreateAccount} />
+		<Route path='/forgot-password' component={ForgotPassword} />
         </div>
         {/* Placeholder for footer */}
 			</div>

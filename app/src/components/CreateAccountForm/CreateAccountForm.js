@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Col, Button } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 import "./CreateAccountForm.scss";
 
 import EmailInput from "../ui/formElements/EmailInput/EmailInput";
@@ -16,7 +17,7 @@ export default function CreateAccountForm(props) {
   const [feedback, setFeedback] = useState("");
 
   const createAccount = () => {
-    if (!feedback) {
+    if (email && username && location && password && confirmPassword && !feedback) {
       const accountDetails = {
         email,
         username,
@@ -25,28 +26,11 @@ export default function CreateAccountForm(props) {
       };
       // TODO: Send account details to database
       console.log(accountDetails);
+      setFeedback("");
     } else {
       setFeedback("All fields must be filled out.");
     }
   };
-
-  useEffect(() => {
-    // Check database for existing email record
-    if(email.length >= 6) {
-      setFeedback('');
-    } else {
-      setFeedback('Please enter a valid email to create your account.');
-    }
-  }, [email]);
-
-  useEffect(() => {
-    // Check database for unique username
-    if(username.length > 0) {
-      setFeedback('');
-    } else {
-      setFeedback('Please enter a unique username to create your account.');
-    }
-  }, [username]);
 
   useEffect(() => {
     // Ensure the passwords match
@@ -54,14 +38,10 @@ export default function CreateAccountForm(props) {
       if(password === confirmPassword) {
         setFeedback('');
       } else {
-          setFeedback('Passwords do not match.');
-      }
-    } else {
-      if(confirmPassword.length > 0) {
-        setFeedback('Please confirm your password.');
+        setFeedback('Passwords do not match.');
       }
     }
-  }, [password, confirmPassword]);
+  }, [password, confirmPassword, feedback]);
 
   return (
     <Col className="CreateAccountForm">
@@ -99,6 +79,9 @@ export default function CreateAccountForm(props) {
             </div>
           ) : null}
           <Button onClick={createAccount}>Create Account</Button>
+          <div className="additional-form-links">
+            <Link to="/home">Already Have An Account? Login</Link>
+          </div>
         </div>
       </div>
     </Col>

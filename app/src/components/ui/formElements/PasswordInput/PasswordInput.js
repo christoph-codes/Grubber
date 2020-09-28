@@ -1,29 +1,43 @@
-import React, { Fragment } from 'react';
-import { InputGroup, FormControl } from 'react-bootstrap';
-import './PasswordInput.scss'
+import React, { Fragment, useEffect, useState } from "react";
+import { InputGroup, FormControl } from "react-bootstrap";
+import "./PasswordInput.scss";
 
-export default function PasswordInput({ placeholder, handler, feedback}) {
+export default function PasswordInput({ placeholder, handler, feedback }) {
+  const [value, setValue] = useState("");
+  const sendValue = (e) => {
+    let val = e.target.value;
+    setValue(val);
+  };
 
-    const sendValue = (e) => {
-        if(e.target.checkValidity) {
-            feedback(e.target.validationMessage)
+  useEffect(() => {
+    if (value) {
+      if (value.length > 0) {
+        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        if (regex.test(value)) {
+          feedback(null);
         } else {
-            feedback('');
+          feedback(
+            "Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character"
+          );
         }
-        handler(e.target.value)
+      } else {
+        feedback("You must enter a password.");
+      }
     }
-	return (
-		<Fragment>
-			<InputGroup className='PasswordInput' size='lg'>
-				<FormControl
-					placeholder={placeholder}
-					onChange={sendValue}
-                    type='password'
-                    title="Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character"
-                    min="6"
-                    autoComplete="new-password"
-				/>
-			</InputGroup>
-		</Fragment>
-    );
+    handler(value);
+  });
+  return (
+    <Fragment>
+      <InputGroup className="PasswordInput" size="lg">
+        <FormControl
+          placeholder={placeholder}
+          onChange={sendValue}
+          type="password"
+          min="6"
+          autoComplete="new-password"
+          value={value}
+        />
+      </InputGroup>
+    </Fragment>
+  );
 }
