@@ -5,7 +5,7 @@ import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import HttpService from './services/HttpService/HttpService';
 
-HttpService.requestGet(`${process.env.REACT_API_HOST}/healthcheck`).then(() => {
+HttpService.requestGet(`${process.env.REACT_APP_API_HOST}/healthcheck`).then(() => {
   // load the app
 }).catch(() => {
   //redirect to error page
