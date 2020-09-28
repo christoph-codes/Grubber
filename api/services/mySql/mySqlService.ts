@@ -3,7 +3,8 @@ import { createPool, format, Pool, PoolConfig } from 'mysql';
 import { getEnvVariable } from '../../env';
 import { grubberLogger } from '../../logger';
 import { basename } from 'path';
-import { AES } from 'crypto-js';
+import { AES, enc } from 'crypto-js';
+import { constants } from '../../constants/constants';
 
 const filename = basename(__filename);
 
@@ -32,17 +33,36 @@ class MySqlService {
                 '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
             const userHash = this.randomString();
-            const userPass = AES.encrypt(user.userPass, userHash);
+            const decrypted = AES.decrypt(user.userPass, constants.SALT_VALUE).toString(enc.Utf8);
+            const userPass = AES.encrypt(decrypted, userHash).toString();
             const currDate = new Date();
 
             const query = format(queryString,
                 // tslint:disable-next-line: max-line-length
-                [user.userName, userPass, userHash, user.firstName, user.lastName, user.gender, user.favoriteFood, user.email, user.location, user.description, currDate, currDate]);
+                [user.userName, userPass, userHash, user.firstName, user.lastName, user.gender, JSON.stringify(user.favoriteFood), user.email, user.location, user.description, currDate, currDate]);
 
             this.pool.query(query, (err, res) => {
                 if (err) {
                     grubberLogger.error('Error when inserting user into database', { filename, obj: err });
-                    reject(err);
+                    if (err.code === 'ER_DUP_ENTRY' && err.sqlMessage.includes('user_name')) {
+                        reject({
+                            status: 400,
+                            error: {
+                                error: 'uname_taken',
+                                error_message: 'The username you are attempting to use is already taken'
+                            }
+                        });
+                    } else if (err.code === 'ER_DUP_ENTRY' && err.sqlMessage.includes('user_email')) {
+                        reject({
+                            status: 400,
+                            error: {
+                                error: 'uemail_taken',
+                                error_message: 'The email you are attempting to use is already taken'
+                            }
+                        });
+                    } else {
+                        reject(err);
+                    }
                 }
 
                 grubberLogger.debug('Added user into database', { filename, obj: res });
