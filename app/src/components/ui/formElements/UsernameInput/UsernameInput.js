@@ -34,6 +34,7 @@ export default function UsernameInput({ placeholder, handler, feedback}) {
                     type='text'
                     value={value}
                     maxLength="16"
+                    autoComplete="username"
 				/>
 			</InputGroup>
 		</Fragment>

@@ -4,6 +4,7 @@ import "./LoginForm.scss";
 
 import UsernameInput from "../ui/formElements/UsernameInput/UsernameInput";
 import PasswordInput from "../ui/formElements/PasswordInput/PasswordInput";
+import { Link } from "react-router-dom";
 
 export default function LoginForm(props) {
   const [username, setUsername] = useState("");
@@ -11,13 +12,15 @@ export default function LoginForm(props) {
   const [feedback, setFeedback] = useState("");
 
   const login = () => {
-    if (!feedback) {
-      const accountDetails = {
-        username,
-        password,
-      };
-      // TODO: Send account details to database
-      console.log(accountDetails);
+    if (username && password) {
+      if (!feedback) {
+        const accountDetails = {
+          username,
+          password,
+        };
+        // TODO: Send account details to database
+        console.log(accountDetails);
+      }
     } else {
       setFeedback("All fields must be filled out.");
     }
@@ -25,19 +28,22 @@ export default function LoginForm(props) {
 
   useEffect(() => {
     // Validate correct username and password
-    if (username && password) {
-      if (username.length > 0) {
-        setFeedback("");
-      } else {
-        setFeedback("Please enter a unique username to create your account.");
-      }
-      if (password.length > 0) {
-        setFeedback("");
-      } else {
-        setFeedback("Please enter your password.");
-      }
-    } else {
-      setFeedback("All fields must be filled out.");
+
+    if (username.length > 0) {
+        let isGoodUsername = true;
+        if(isGoodUsername) {
+            setFeedback("");
+        } else {
+            setFeedback("Please enter your account username.");
+        }
+    }
+    if (password.length > 0) {
+        let isGoodPassword = true;
+        if (isGoodPassword) {
+            setFeedback("");
+        } else {
+            setFeedback("Please enter your password.");
+        }
     }
   }, [username, password]);
 
@@ -67,6 +73,10 @@ export default function LoginForm(props) {
             </div>
           ) : null}
           <Button onClick={login}>Login</Button>
+          <div className="additional-form-links">
+            <Link to="/create-account">Create An Account?</Link>
+            <Link to="/forgot-password">Forgot Your Password?</Link>
+          </div>
         </div>
       </div>
     </Col>

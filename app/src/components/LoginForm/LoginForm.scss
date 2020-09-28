@@ -2,4 +2,12 @@
     &.col {
         padding: 0;
     }
+    .additional-form-links {
+        margin: 15px 0;
+        display: inline-grid;
+        a {
+            margin: 10px 0;
+            text-decoration: underline;
+        }
+    }
 }
