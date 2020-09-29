@@ -109,6 +109,11 @@ paths:
           description: Either username or password is already in use
           schema:
             $ref: '#/definitions/CreateAccountBadRequest'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+            
   /api/profile/distance:
     post:
       tags:
