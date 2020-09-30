@@ -1,0 +1,18 @@
+.UserSidebar {
+    height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    .logo {
+        padding-bottom: 30px;
+    }
+    .footer {
+        margin-top: auto;
+        p {
+            font-size: 12px;
+            color: var(--primarylt);
+        }
+    }
+}

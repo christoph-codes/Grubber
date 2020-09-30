@@ -1,0 +1,24 @@
+.UserDashProfile {
+    padding: 30px;
+    height: 100%;
+    .headshot {
+        border-radius: 50%;
+        border: solid 10px white;
+        filter: drop-shadow(5px 5px 30px rgba(0,0,0,0.1))
+    }
+    hr {
+        margin-top: 2rem;
+    }
+    .account-group {
+        padding: 15px 0;
+        font-size: 21px;
+        font-family: 'Roboto', sans-serif;
+        label {
+            font-weight: lighter;
+        }
+        h6 {
+            color: var(--primary);
+            font-weight: bold;
+        }
+    }
+}

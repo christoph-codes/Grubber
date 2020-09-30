@@ -2,16 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap");
 // Color Variables
-$primary: #4a31c1;
-$primarymd: #a498e0;
-$primarylt: #dbd6f3;
-$primarywt: #f5f4ff;
-$secondary: #dba74c;
-$secondarymd: #edd3a6;
-$secondarylt: #f8eddb;
-$tertiary: #08cd95;
-$tertiarymd: #84e6ca;
-$tertiarylt: #cef5ea;
+:root {
+  --primary: #4a31c1;
+  --primarymd: #a498e0;
+  --primarylt: #dbd6f3;
+  --primarywt: #f5f4ff;
+  --secondary: #dba74c;
+  --secondarymd: #edd3a6;
+  --secondarylt: #f8eddb;
+  --tertiary: #08cd95;
+  --tertiarymd: #84e6ca;
+  --tertiarylt: #cef5ea;
+}
+
 
 h1,
 h2,
@@ -51,6 +54,11 @@ h6 {
   font-size: 0.778em;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .page-container {
   width: 100%;
 }
@@ -65,14 +73,14 @@ h6 {
 }
 
 .primary {
-  color: $primary;
+  color: var(--primary);
 }
 .secondary {
-  color: $secondary;
+  color: var(--secondary);
 }
 
 .purplebg {
-  background: $primary;
+  background: var(--primary);
   h1,
   h2,
   h3,
@@ -104,12 +112,12 @@ input.form-control {
   border: none;
   margin-bottom: 20px !important;
   &::placeholder {
-    color: #a498e0;
+    color: var(--primarymd);
   }
 }
 .btn-primary {
   color: #fff;
-  background-color: $secondary;
+  background-color: var(--secondary);
   border-color: none;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
@@ -122,7 +130,7 @@ input.form-control {
   font-weight: 400;
   box-sizing: border-box;
   &:hover {
-    background-color: $secondarymd;
+    background-color: var(--secondarymd);
   }
 }
 .feedback {
