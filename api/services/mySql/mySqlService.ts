@@ -97,7 +97,7 @@ class MySqlService {
                 }
             });
         });
-    }
+    };
 
     public retrieveZipCodes = (zipOne: number, zipTwo: number) => {
         return new Promise<any>((resolve, reject) => {
@@ -111,7 +111,71 @@ class MySqlService {
                     reject(err);
                 }
                 resolve(res);
-            })
+            });
+        });
+    };
+
+    public createGrub = (req: any) => {
+        return new Promise<any>((resolve, reject) => {
+            const queryString = 'INSERT INTO GRUBS (title, requested_user_id, location, restaurant, grub_date, confirmed_date) ' +
+                '(?, ?, ?, ?, ?, ?)';
+
+            const query = format(queryString, [req.title, req.reqUserId, req.location, req.restaurant, req.grubDate, new Date()]);
+
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error creating new grub ', { filename, obj: err });
+                    reject(err);
+                }
+                resolve(res);
+            });
+        });
+    };
+
+    public joinGrub = (req: any) => {
+        return new Promise<any>((resolve, reject) => {
+            const queryString = 'INSERT INTO JOIN_USERS_GRUBS (grub_id, user_id) ' +
+            '(?, ?)';
+
+            const query = format(queryString, [req.grubId, req.userId]);
+
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error joining grub ', { filename, obj: err });
+                    reject(err);
+                }
+                resolve(res);
+            });
+        });
+    };
+
+    public retrieveAllGrubs = () => {
+        return new Promise<any>((resolve, reject) => {
+            const query = 'SELECT * FROM GRUBS';
+
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error retrieving grubs ', { filename, obj: err });
+                    reject(err);
+                }
+                resolve(res);
+            });
+        });
+    };
+
+    public retrieveGrubsByLocation = (req: any) => {
+        return new Promise<any>((resolve, reject) => {
+            const queryString = 'SELECT * FROM GRUBS WHERE LOCATION LIKE ?';
+
+            const query = format(queryString, [`%${req.location}%`]);
+
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error retrieving grubs ', { filename, obj: err });
+                    reject(err);
+                }
+                resolve(res);
+            });
         });
     }
 
@@ -122,7 +186,7 @@ class MySqlService {
             rstring += alphabet.charAt(Math.floor(Math.random() * 52));
         }
         return rstring;
-    }
+    };
 }
 
 export const mySqlService: MySqlService = new MySqlService();

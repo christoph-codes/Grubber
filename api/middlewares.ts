@@ -4,6 +4,7 @@ import { constants } from './constants/constants';
 import { basename } from 'path';
 import { grubberLogger } from './logger';
 import { AES, enc } from 'crypto-js';
+import * as memcache from 'memory-cache';
 
 const filename = basename(__filename);
 
@@ -85,7 +86,7 @@ export const logRequest = (req: Request, _res: Response, next: NextFunction) => 
     next();
 };
 
-export const requestValidator = (req: Request, reqBody: string[], reqHeader?: string[]) => {
+export const requestValidator = (req: Request, reqBody: string[], reqParams?: string[]) => {
 
     const missing = [];
     
@@ -96,9 +97,9 @@ export const requestValidator = (req: Request, reqBody: string[], reqHeader?: st
             }
         });
     }
-    if (reqHeader) {
-        reqHeader.forEach(prop => {
-            if (!req.headers.hasOwnProperty(prop)) {
+    if (reqParams) {
+        reqParams.forEach(prop => {
+            if (!req.params.hasOwnProperty(prop)) {
                 missing.push(prop);
             }
         });
@@ -112,6 +113,41 @@ export const requestValidator = (req: Request, reqBody: string[], reqHeader?: st
                 error_message: 'request is missing required params: ' + missing.toString
             }
         }
+    }
+
+    return true;
+};
+
+export const validateAuthenticatedSession = (req: Request, res: Response, next: NextFunction) => {
+    if (req.cookies[constants.SESSION_COOKIE] && memcache.keys().includes(req.cookies[constants.SESSION_COOKIE])) {
+        const session = memcache.get(req.cookies[constants.SESSION_COOKIE]);
+        if (checkSessionObj(req, session)) {
+            next();
+        } else {
+            res.status(401).send({
+                error: 'invalid_session',
+                error_message: 'The session associated with the request is not valid'
+            });
+        }
+    } else {
+        res.status(401).send({
+            error: 'no_session',
+            error_message: 'You must be logged in to access this resource'
+        });
+    }
+};
+
+const checkSessionObj = (req: Request, session: any): boolean => {
+    if (session.userIp !== req.ip) {
+        return false;
+    }
+
+    if (req.body['userName'] && req.body['userName'] !== session.userName) {
+        return false;
+    }
+
+    if (req.body['userId'] && req.body['userId'] !== session.userId) {
+        return false;
     }
 
     return true;
