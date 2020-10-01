@@ -1,18 +1,52 @@
 .UserSidebar {
-    height: 100vh;
-    padding: 30px;
-    box-sizing: border-box;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    .logo {
-        padding-bottom: 30px;
+  height: 100vh;
+  // padding: 30px;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  .logo {
+    padding-bottom: 30px;
+    margin: 0 auto;
+  }
+  .footer {
+    margin-top: auto;
+    p {
+      font-size: 12px;
+      color: var(--primarylt);
     }
-    .footer {
-        margin-top: auto;
-        p {
-            font-size: 12px;
-            color: var(--primarylt);
+  }
+  ul.user-nav-list {
+    list-style: none;
+    padding: 0 30px;
+    li {
+      padding: 30px 0;
+      a {
+        transition: 0.3s;
+        &.active {
+          span.user-navlink-label {
+            font-weight: bold;
+          }
         }
+        &:hover {
+          img.user-navlink-icon {
+            transform: rotate(15deg);
+          }
+          span.user-navlink-label {
+            color: var(--primarylt);
+          }
+        }
+        img.user-navlink-icon {
+          width: 30px;
+          margin-right: 20px;
+          transition: 0.3s;
+        }
+        span.user-navlink-label {
+          color: var(--primary);
+          transition: 0.3s;
+        }
+      }
+      
     }
+  }
 }
