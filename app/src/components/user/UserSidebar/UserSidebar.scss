@@ -23,30 +23,31 @@
       padding: 30px 0;
       a {
         transition: 0.3s;
-        &.active {
-          span.user-navlink-label {
-            font-weight: bold;
-          }
-        }
         &:hover {
           img.user-navlink-icon {
             transform: rotate(15deg);
+            fill: var(--primarylt)
           }
           span.user-navlink-label {
             color: var(--primarylt);
+          }
+        }
+        &.active {
+          span.user-navlink-label {
+            font-weight: bold;
           }
         }
         img.user-navlink-icon {
           width: 30px;
           margin-right: 20px;
           transition: 0.3s;
+          fill: var(--primarylt)
         }
         span.user-navlink-label {
           color: var(--primary);
           transition: 0.3s;
         }
       }
-      
     }
   }
 }
