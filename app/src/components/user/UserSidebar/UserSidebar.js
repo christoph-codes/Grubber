@@ -39,7 +39,7 @@ export default function UserSidebar(props) {
     ]
     const userNavList = userNavigationLinks.map(link => {
         return (
-            <li>
+            <li key={link.name}>
                 <NavLink exact to={link.url}>
                     <img className="user-navlink-icon" src={link.icon} alt={link.name} /><span className="user-navlink-label d-sm-none d-md-inline-block">{link.name}</span>
                 </NavLink>

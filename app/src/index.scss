@@ -118,7 +118,7 @@ input.form-control {
 .btn-primary {
   color: #fff;
   background-color: var(--secondary);
-  border-color: none;
+  border: none;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
   min-width: 60%;
@@ -147,6 +147,16 @@ input.form-control {
   img {
     max-width: 70%;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+  }
+}
+button.cancel-link {
+  border: none;
+  background: transparent;
+  margin: 20px 0;
+  color: var(--secondary);
+  transition: 0.3s;
+  &:hover {
+    color: var(--secondarymd)
   }
 }
 
