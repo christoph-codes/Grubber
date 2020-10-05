@@ -50,6 +50,7 @@ export default function UserGrubRequest(props) {
                   feedback={setFeedback}
                   placeholder="How many would you like to join you?"
                   handler={setGrubUsersRequested}
+                  min="0"
                 />
               </Col>
               <Col>

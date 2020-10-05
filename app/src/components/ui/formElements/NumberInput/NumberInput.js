@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import './NumberInput.scss';
 
-export default function NumberInput({ placeholder, handler, feedback}) {
+export default function NumberInput({ placeholder, handler, feedback, ...rest}) {
 
     const sendValue = (e) => {
         let val = e.target.value;
@@ -20,6 +20,7 @@ export default function NumberInput({ placeholder, handler, feedback}) {
 					placeholder={placeholder}
 					onChange={sendValue}
                     type='number'
+                    {...rest}
 				/>
 			</InputGroup>
 		</Fragment>
