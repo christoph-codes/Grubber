@@ -129,7 +129,7 @@ input.form-control {
   line-height: 1.5;
   font-weight: 400;
   box-sizing: border-box;
-  &:hover {
+  &:hover, &:active, &.active, &.focus, &:focus, &:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active {
     background-color: var(--secondarymd);
   }
   &.disabled, &:disabled {
