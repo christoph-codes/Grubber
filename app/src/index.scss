@@ -132,6 +132,10 @@ input.form-control {
   &:hover {
     background-color: var(--secondarymd);
   }
+  &.disabled, &:disabled {
+    color: darkgray;
+    background-color: lightgray;
+  }
 }
 .feedback {
   margin-bottom: 20px;

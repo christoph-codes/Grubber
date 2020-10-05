@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Row, Col, InputGroup, FormControl } from "react-bootstrap";
+import { Button, Row, Col, InputGroup, FormControl, Collapse } from "react-bootstrap";
 import "./UserGrubRequest.scss";
 import TextInput from "../../ui/formElements/TextInput/TextInput";
 import NumberInput from "../../ui/formElements/NumberInput/NumberInput";
@@ -41,8 +41,7 @@ export default function UserGrubRequest(props) {
           onChange={(e) => setGrubMessage(e.target.value)}
         />
       </InputGroup>
-      {openForm ? (
-        <div className="animate__animated animate__zoomIn">
+      <Collapse in={openForm}>
           <div className="grub-request-form">
             <Row>
               <Col>
@@ -74,8 +73,7 @@ export default function UserGrubRequest(props) {
               </Col>
             </Row>
           </div>
-        </div>
-      ) : null}
+      </Collapse>
 
       {feedback ? (
         <div className="feedback">
