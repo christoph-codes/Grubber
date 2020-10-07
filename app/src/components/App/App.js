@@ -15,15 +15,16 @@ function App() {
 	return (
 		<Router>
 			<div className='App'>
-        <div className="page-container">
-        <Header />
-        
-		<Route path='/' exact component={HomeLogin} />
-		<Route path='/create-account' component={CreateAccount} />
-		<Route path='/forgot-password' component={ForgotPassword} />
-		<Route path='/splash' exact component={SplashScreen} />
-        </div>
-        {/* Placeholder for footer */}
+				<div className="page-container">
+					<Header navigations={[{	link: "/", exact: true, text: "Home"},
+					 						{link: "/create-account", exact: false, text: "Create Account"}]} />
+					
+					<Route path='/' exact component={HomeLogin} />
+					<Route path='/create-account' component={CreateAccount} />
+					<Route path='/forgot-password' component={ForgotPassword} />
+					<Route path='/splash' exact component={SplashScreen} />
+				</div>
+				{/* Placeholder for footer */}
 			</div>
 		</Router>
 	);
