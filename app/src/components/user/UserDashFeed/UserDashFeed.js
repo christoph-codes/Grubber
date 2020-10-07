@@ -5,7 +5,7 @@ import './UserDashFeed.scss';
 
 export default function UserDashFeed(props) {
      return (
-        <div className='UserDashFeed'>
+        <div className='UserDashFeed animate__animated animate__fadeInUpBig'>
             <UserGrubRequest/>
             <UserDashActivity />
         </div>

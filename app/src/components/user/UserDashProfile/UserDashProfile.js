@@ -55,9 +55,6 @@ export default function UserDashProfile(props) {
             <Dropdown.Item as="button">
                 <a href={false} onClick={logout} >Logout</a>
             </Dropdown.Item>
-            <Dropdown.Item as="button">
-                <Link to="/dashboard" >Dashboard</Link>
-            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
