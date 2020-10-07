@@ -1,0 +1,45 @@
+.UserGrub {
+    background: white;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    .grub-avatar img {
+        max-width: 50px;
+    }
+    .grub-message {
+        text-align: left;
+        h2 {
+            color: var(--primary);
+            font-size: 21px;
+            margin: 0;
+            span {
+                clear: both;
+                display: block;
+                font-size: 16px;
+                color: var(--primarymd);
+                font-family: 'Roboto', sans-serif;
+                margin-top: 5px;
+            }
+        }
+    }
+    .grub-request-detail {
+        p {
+        text-align: right;
+        font-size: 14px;
+        color: var(--primary);
+        margin: 0;
+        }
+    }
+    .grub-user-request-count {
+        background: var(--tertiary);
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        padding: 25px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+    }
+}

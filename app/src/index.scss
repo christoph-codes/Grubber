@@ -1,17 +1,52 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,300;1,700&display=swap");
 // Color Variables
-$primary: #4a31c1;
-$primarymd: #a498e0;
-$primarylt: #dbd6f3;
-$primarywt: #f5f4ff;
-$secondary: #dba74c;
-$secondarymd: #edd3a6;
-$secondarylt: #f8eddb;
-$tertiary: #08cd95;
-$tertiarymd: #84e6ca;
-$tertiarylt: #cef5ea;
+:root {
+  --primary: #4a31c1;
+  --primarymd: #a498e0;
+  --primarylt: #dbd6f3;
+  --primarywt: #f5f4ff;
+  --secondary: #dba74c;
+  --secondarymd: #edd3a6;
+  --secondarylt: #f8eddb;
+  --tertiary: #08cd95;
+  --tertiarymd: #84e6ca;
+  --tertiarylt: #cef5ea;
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+  }
+  @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
 
 h1,
 h2,
@@ -51,6 +86,11 @@ h6 {
   font-size: 0.778em;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .page-container {
   width: 100%;
 }
@@ -65,14 +105,14 @@ h6 {
 }
 
 .primary {
-  color: $primary;
+  color: var(--primary);
 }
 .secondary {
-  color: $secondary;
+  color: var(--secondary);
 }
 
 .purplebg {
-  background: $primary;
+  background: var(--primary);
   h1,
   h2,
   h3,
@@ -104,13 +144,13 @@ input.form-control {
   border: none;
   margin-bottom: 20px !important;
   &::placeholder {
-    color: #a498e0;
+    color: var(--primarymd);
   }
 }
 .btn-primary {
   color: #fff;
-  background-color: $secondary;
-  border-color: none;
+  background-color: var(--secondary);
+  border: none;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
   min-width: 60%;
@@ -121,8 +161,12 @@ input.form-control {
   line-height: 1.5;
   font-weight: 400;
   box-sizing: border-box;
-  &:hover {
-    background-color: $secondarymd;
+  &:hover, &:active, &.active, &.focus, &:focus, &:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active {
+    background-color: var(--secondarymd);
+  }
+  &.disabled, &:disabled {
+    color: darkgray;
+    background-color: lightgray;
   }
 }
 .feedback {
@@ -139,6 +183,16 @@ input.form-control {
   img {
     max-width: 70%;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+  }
+}
+button.cancel-link {
+  border: none;
+  background: transparent;
+  margin: 20px 0;
+  color: var(--secondary);
+  transition: 0.3s;
+  &:hover {
+    color: var(--secondarymd)
   }
 }
 
