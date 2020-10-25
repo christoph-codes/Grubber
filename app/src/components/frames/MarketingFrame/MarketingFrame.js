@@ -12,7 +12,8 @@ import Header from "../../Header/header.component";
 export default function MarketingFrame(props) {
   return (
     <div className="MarketingFrame">
-      <Header />
+			<Header navigations={[{link: "/", exact: true, text: "Home"},
+					{link: "/create-account", exact: false, text: "Create Account"}]} />
       <Switch>
         <Route path="/" exact component={HomeLogin} />
         <Route path="/create-account" exact component={CreateAccount} />

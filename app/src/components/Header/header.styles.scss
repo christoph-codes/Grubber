@@ -1,5 +1,4 @@
 .header {
-    height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -7,7 +6,7 @@
     .logo-container {
         height: 100%;
         width: 10.5rem;
-        padding: 15px;
+        padding: 5px;
       }
 
     .options {
@@ -29,5 +28,21 @@
         .option:hover{
           color: #DBA74C;
         }
+    }
+    
+    @media screen and (max-width: 991px) {
+      .logo-container {
+        width: 7.5rem;
+      }
+      .options {
+        background-color: #f8f9fa;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+
+        .option:hover{
+          color: #DBA74C;
+        }
+      }
     }
 }
