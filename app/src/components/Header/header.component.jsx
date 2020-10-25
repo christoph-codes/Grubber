@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 import logo from '../../assets/grubber_logo.svg';
 
-const Header = (navigations) => (
+const Header = ({ navigations }) => (
     <Navbar collapseOnSelect className="header" bg="light" expand="lg">
         <Navbar.Brand className="logo-container" href="/">
             <img src={logo} className="logo" alt="Grubber is the future."/>
@@ -15,7 +15,7 @@ const Header = (navigations) => (
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto options">
-                {navigations.navigations.map((item, id) => 
+                {navigations.map((item, id) => 
                     <NavLink 
                         key={id}
                         className="option"
