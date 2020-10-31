@@ -20,10 +20,11 @@ export default function CreateAccountForm(props) {
     if (email && username && location && password && confirmPassword && !feedback) {
       const accountDetails = {
         email,
-        username,
+        username: username.toLowerCase(),
         location,
-        password
+        password // May need to encrypt if we do not use SSL/HTTPS
       };
+
       // TODO: Send account details to database
       console.log(accountDetails);
       setFeedback("");
