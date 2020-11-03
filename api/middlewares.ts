@@ -110,7 +110,7 @@ export const requestValidator = (req: Request, reqBody: string[], reqParams?: st
             status: 400,
             error: {
                 error: 'missing_params',
-                error_message: 'request is missing required params: ' + missing.toString
+                error_message: 'request is missing required params: ' + missing.toString()
             }
         }
     }
