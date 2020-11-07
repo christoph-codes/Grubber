@@ -10,7 +10,9 @@ class CreateAccountService {
     public invoke = async (req: any) => {
         try {
             grubberLogger.debug('Create Account Service request: ', { filename, obj: req});
-            const result = await mySqlService.createUser(req);
+            const sanitizedData = this.sanitizeCreateAccountData(req);
+            grubberLogger.debug('Sanitize Data', { filename, obj: sanitizedData});
+            const result = await mySqlService.createUser(sanitizedData);
             grubberLogger.debug('Creage Account Service result from mySql ', { filename, obj: result });
             return {
                 userId: result.insertId,
@@ -23,6 +25,13 @@ class CreateAccountService {
             throw error;
         }
     };
+
+    private sanitizeCreateAccountData = (data: any) => {
+        let sanitizedData = data;
+        sanitizedData.userName = sanitizedData.userName.toLowerCase();
+        sanitizedData.location = sanitizedData.location.value.structured_formatting.main_text;
+        return sanitizedData;
+    }
 }
 
 export const createAccountService: CreateAccountService = new CreateAccountService();
