@@ -5,19 +5,19 @@ import UserFrame from "../frames/UserFrame/UserFrame";
 import "./App.scss";
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <div className="page-container">
-          <Switch>
-            <Route path="/dashboard" component={UserFrame} />
-			<Route path="/" component={MarketingFrame} />
-          </Switch>
-        </div>
-        {/* Placeholder for footer */}
-      </div>
-    </Router>
-  );
+	return (
+		<Router>
+			<div className='App'>
+				<div className="page-container">
+					<Switch>
+						<Route path="/dashboard" component={UserFrame} />
+						<Route path="/" component={MarketingFrame} />
+					</Switch>
+				</div>
+				{/* Placeholder for footer */}
+			</div>
+		</Router>
+	);
 }
 
 export default App;
