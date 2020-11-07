@@ -17,6 +17,8 @@ tags:
   description: Health Check API
 - name: Authentication
   description: APIs related to authenticated sessions
+- name: Profile
+  description: APIs related to user profile
 
 paths:
   /healthcheck:
@@ -78,6 +80,59 @@ paths:
           description: request timed out
           schema:
             $ref: '#/definitions/503'
+            
+  /api/auth/createaccount:
+    post:
+      tags:
+      - Authentication
+      summary: Creates a new user in the database. On success, returns the users user id. Requires a unique username and email.
+      operationId: createaccount
+      description: Used for creating an account
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: requestBody
+          description: Request JSON body containing account information
+          schema:
+            $ref: '#/definitions/CreateAccountRequest'
+      responses:
+        200: 
+          description: Successful authentication
+          headers:
+            Set-Cookie:
+              type: string
+              description: Sets the cookie for the session id, G_SESSION_ID
+          schema:
+            $ref: '#/definitions/AuthorizeResponse'
+        400:
+          description: Either username or password is already in use
+          schema:
+            $ref: '#/definitions/CreateAccountBadRequest'
+  /api/profile/distance:
+    post:
+      tags:
+      - Profile
+      summary: Returns the distance between two zip codes in either miles or km.
+      operationId: distance
+      description: Get distance
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: requestBody
+          description: Request JSON containing both zip codes and the unit of measure (miles or km)
+          schema:
+            $ref: '#/definitions/DistanceRequest'
+      responses:
+        200:
+          description: Successful calculation
+          schema:
+            $ref: '#/definitions/DistanceResponse'
+        503:
+          description: Response timed out
+          schema:
+            $ref: '#/definitions/503'
 
 definitions:
   HealthCheckResponse:
@@ -88,6 +143,9 @@ definitions:
         example: app is healthy
   AuthorizeRequest:
     type: object
+    required:
+    - userName
+    - userPass
     properties:
         userName:
           type: string
@@ -113,6 +171,80 @@ definitions:
       error_message: 
         type: string
         example: The password provided is incorrect
+  CreateAccountRequest:
+    type: object
+    required:
+    - userName
+    - userPass
+    - firstName
+    - lastName
+    - gender
+    - email
+    - location
+    properties:
+      userName:
+        type: string
+        example: user
+      userPass:
+        type: string
+        example: (string encrypted using AES)
+      firstName:
+        type: string
+        example: Patrick
+      lastName:
+        type: string
+        example: Star
+      gender:
+        type: string
+        example: Male
+      favoriteFood:
+        type: array
+        items:
+          type: string
+        example:
+          items:
+            - Chinese
+            - Pizza
+      email:
+        type: string
+        example: patrick@test.com
+      location:
+        type: string
+        example: 89102
+      description:
+        type: string
+        example: Sample description
+  CreateAccountBadRequest:
+    type: object
+    properties:
+      error:
+        type: string
+        example: uname_taken or uemail_taken
+      error_message:
+        type: string
+        example: The (username/email) you are attempting to use is already taken
+  DistanceRequest:
+    type: object
+    required:
+    - zipOne
+    - zipTwo
+    - measure
+    properties:
+      zipOne:
+        type: string
+        example: 89102
+      zipTwo:
+        type: string
+        example: 98056
+      measure:
+        type: string
+        example: miles
+  DistanceResponse:
+    type: object
+    properties:
+      distance:
+        type: string
+        example: 754 miles
   UserNotFound:
     type: object
     properties:
