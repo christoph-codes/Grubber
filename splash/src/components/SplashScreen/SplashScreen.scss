@@ -1,18 +1,25 @@
 @import '../../assets/styles/colors';
 .SplashScreen {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    background: url(../../assets/grub_splash_bg.png) no-repeat;
-    background-size: cover;
-    border-bottom: $primary solid 15px;
-    box-sizing: border-box;
-    img{
-        width: 50vw;
-        pointer-events: none;
-        filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
-
-      }
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	background: url(../../assets/grub_splash_bg.png) no-repeat center;
+	background-size: cover;
+	border-bottom: $primary solid 15px;
+	box-sizing: border-box;
+	img {
+		width: 50vw;
+		pointer-events: none;
+		filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+		max-width: 540px;
+	}
+}
+@media (max-width: 500px) {
+	.SplashScreen {
+		img {
+			width: 90vw;
+		}
+	}
 }
