@@ -9,7 +9,7 @@ import { requestValidator } from '../../../middlewares';
 import * as memcache from 'memory-cache';
 
 const filename = basename(__filename);
-const requiredFields = ['userName', 'userPass', 'firstName', 'lastName', 'gender', 'favoriteFood', 'email', 'location', 'description'];
+const requiredFields = ['userName', 'userPass', 'email', 'location',];
 
 export const createAccountApi = async (req: Request, res: Response) => {
     try {

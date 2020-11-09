@@ -5,7 +5,7 @@ import "./UsernameInput.scss";
 export default function UsernameInput({ placeholder, handler, feedback }) {
   const [value, setValue] = useState("");
   const sendValue = (e) => {
-    let val = e.target.value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    let val = e.target.value.replace(/[^a-zA-Z0-9]/g, "");
     setValue(val);
   };
 

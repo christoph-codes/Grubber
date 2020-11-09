@@ -39,7 +39,7 @@ class MySqlService {
 
             const query = format(queryString,
                 // tslint:disable-next-line: max-line-length
-                [user.userName, userPass, userHash, user.firstName, user.lastName, user.gender, JSON.stringify(user.favoriteFood), user.email, user.location, user.description, currDate, currDate]);
+                [user.userName, userPass, userHash, "", "", "", null, user.email, user.location, null, currDate, currDate]);
 
             this.pool.query(query, (err, res) => {
                 if (err) {

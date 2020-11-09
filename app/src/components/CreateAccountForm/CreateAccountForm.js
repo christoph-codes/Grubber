@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import HttpService from '../../services/HttpService/HttpService';
 import { Col, Button } from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import "./CreateAccountForm.scss";
+
 
 import EmailInput from "../ui/formElements/EmailInput/EmailInput";
 import UsernameInput from "../ui/formElements/UsernameInput/UsernameInput";
@@ -20,13 +22,19 @@ export default function CreateAccountForm(props) {
     if (email && username && location && password && confirmPassword && !feedback) {
       const accountDetails = {
         email,
-        username,
+        userName: username,
         location,
-        password
+        userPass: password // May need to encrypt if we do not use TLS/HTTPS
       };
+
       // TODO: Send account details to database
       console.log(accountDetails);
       setFeedback("");
+      HttpService.requestPost(`${process.env.REACT_APP_API_HOST}/api/auth/createaccount`, accountDetails).then(() => {
+        //Load 2nd Form/Load dashboard
+      }).catch(() => {
+        //redirect to error page
+      });
     } else {
       setFeedback("All fields must be filled out.");
     }
