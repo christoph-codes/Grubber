@@ -27,7 +27,17 @@ export const authorizeApi = async (req: Request, res: Response) => {
             maxAge: response.ttl,
             httpOnly: true,
             domain: extractOrigin(req)
-        }).status(200).send({ userId: response.userId });
+        }).status(200).send({ 
+            id: response.userId, 
+            username: response.userName,
+            fname: response.first_name,
+            lname: response.last_name,
+            gender: response.gender,
+            favorite_food: response.favorite_food,
+            email: response.email,
+            location: response.location,
+            description: response.description
+        });
     } catch (error) {
         grubberLogger.error('Authorize API error: ', { filename, obj: error });
         apiErrorResponse(error, res);

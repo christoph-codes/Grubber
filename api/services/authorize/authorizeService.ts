@@ -21,6 +21,13 @@ class AuthorizeService {
                 return {
                     userId: user.user_id,
                     userName: user.user_name,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    gender: user.user_gender,
+                    favorite_food: user.favorite_food,
+                    email: user.user_email,
+                    location: user.location,
+                    description: user.user_description,
                     ttl: req.keepMeLoggedIn ? 31557600000 : 1800000,
                     sessionId
                 };
