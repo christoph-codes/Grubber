@@ -1,0 +1,14 @@
+[2020-11-09T21:19:59.879] [ERROR] default - [authorizeService.js] Authorize Service error  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}
+[2020-11-09T21:19:59.880] [ERROR] default - [authorizeApi.js] Authorize API error:  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}

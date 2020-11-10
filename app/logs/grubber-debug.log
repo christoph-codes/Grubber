@@ -1,0 +1,184 @@
+[2020-11-09T20:58:50.254] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:00:37.265] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:00:56.340] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:00:56.341] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:00:56.558] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:00:56.559] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:00:56.561] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: 'a90ea241-49ad-4c49-96f8-cd94a6cc5db7'
+}
+[2020-11-09T21:08:48.154] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:08:48.155] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:08:48.235] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:08:48.236] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:08:48.239] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: '49441441-e9b2-4f36-8a1b-a3170984c9ba'
+}
+[2020-11-09T21:16:24.419] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:19:59.590] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:19:59.590] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:19:59.877] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:19:59.878] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:19:59.879] [ERROR] default - [authorizeService.js] Authorize Service error  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}
+[2020-11-09T21:19:59.880] [ERROR] default - [authorizeApi.js] Authorize API error:  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}
+[2020-11-09T21:20:05.672] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:20:05.672] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:20:05.758] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:20:05.758] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:20:05.760] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: 'bd4e6618-fd29-49d5-961d-ca51d4618da0'
+}

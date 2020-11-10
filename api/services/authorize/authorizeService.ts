@@ -18,6 +18,7 @@ class AuthorizeService {
             // tslint:disable-next-line: max-line-length
             if (AES.decrypt(user.user_pass, user.user_hash).toString(enc.Utf8) === AES.decrypt(req.userPass, constants.SALT_VALUE).toString(enc.Utf8)) {
                 const sessionId = v4();
+                console.log(user);
                 return {
                     userId: user.user_id,
                     userName: user.user_name,

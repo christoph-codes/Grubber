@@ -1,0 +1,202 @@
+[2020-11-09T20:58:50.254] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:00:37.265] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:00:46.942] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:00:46.946] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9","if-none-match":"W/\"1b-WSeHCcqEDSGvQw65SF2OAbuRdFo\""},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:00:46.965] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","accept":"application/json, text/plain, */*","csrf-token":"null","grubber-sec-token":"U2FsdGVkX19pYSy/n3e9OlWm3noKEINqsHf/SAkYNLD4gICyo2k0QTXsW+i8jkZzCcJoHe3U6w/F3u0Tb6WxNg==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:00:56.319] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:00:56.331] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:00:56.334] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","csrf-token":"0A8oOztj-AkXRpu7lImm4-DP7ISBnTWlfqZ0","grubber-sec-token":"U2FsdGVkX1+dyRpbSkK5VO3qrDTo2u+0zYOAylCG3mkx8s+OTX/ctL7Ckr4Kq8NzZVZfs8yf+FlqLlywj3bjUg==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:00:56.340] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:00:56.341] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:00:56.558] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:00:56.559] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:00:56.561] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: 'a90ea241-49ad-4c49-96f8-cd94a6cc5db7'
+}
+[2020-11-09T21:08:48.150] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:08:48.151] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:08:48.153] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","csrf-token":"ozvwBY2s-K3zbA1fEJ8kHo0sxWMP28lzU8Qg","grubber-sec-token":"U2FsdGVkX1/ZnuEZ+ZQZPdZi7nXyeB32L5RRLU3tUlUYopZJOdLtdtozG7o/3keIHVaaTWjjAoZiNfTkPDUR0Q==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:08:48.154] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:08:48.155] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:08:48.235] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:08:48.236] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:08:48.239] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: '49441441-e9b2-4f36-8a1b-a3170984c9ba'
+}
+[2020-11-09T21:16:24.419] [DEBUG] default - [mySqlService.js] Creating pool with configs  {
+  host: 'grubber-db.cmowhqpqp6r1.us-west-2.rds.amazonaws.com',
+  user: 'grubber',
+  password: 'grubber',
+  database: 'Grubber',
+  dateStrings: true,
+  supportBigNumbers: true
+}
+[2020-11-09T21:16:34.326] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:16:34.343] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","accept":"application/json, text/plain, */*","csrf-token":"V6zt3O1k-tHBuUVNj9jh5WqCRb12qFAnyjug","grubber-sec-token":"U2FsdGVkX1/moDRxreOYIyqMRiGnvFdUQ4LHeGxbS0YGY7iDeYZTfm2zrCKYf19rs24026yEFGoM2cl6DGRoLw==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:16:34.344] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9","if-none-match":"W/\"1b-WSeHCcqEDSGvQw65SF2OAbuRdFo\""},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:19:59.581] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:19:59.583] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:19:59.586] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","csrf-token":"sRYWPImm-IFsvPW1GgV_ROUUUTAWAY9ZZGew","grubber-sec-token":"U2FsdGVkX1/B0AtiqdQtUFEtsLgI38Rwjl9oYMTZBGln3SP6Pv/OA5/uBPuCYZoYOUPybUpWWpm4Ll1gR9lUzw==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:19:59.590] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:19:59.590] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:19:59.877] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:19:59.878] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:19:59.879] [ERROR] default - [authorizeService.js] Authorize Service error  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}
+[2020-11-09T21:19:59.880] [ERROR] default - [authorizeApi.js] Authorize API error:  {
+  status: 400,
+  error: {
+    error: 'password_not_match',
+    error_message: 'The password provided is incorrect'
+  }
+}
+[2020-11-09T21:20:05.668] [TRACE] default - [middlewares.js] Request received:  {"method":"GET","path":"/healthcheck","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/healthcheck"}}
+[2020-11-09T21:20:05.669] [TRACE] default - [middlewares.js] Request received:  {"method":"OPTIONS","path":"/api/auth/authorize","body":{},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","pragma":"no-cache","cache-control":"no-cache","accept":"*/*","access-control-request-method":"POST","access-control-request-headers":"content-type,csrf-token,grubber-sec-token","origin":"http://localhost:3000","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","sec-fetch-mode":"cors","sec-fetch-site":"same-site","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:20:05.671] [TRACE] default - [middlewares.js] Request received:  {"method":"POST","path":"/api/auth/authorize","body":{"userName":"tkcwebdev","userPass":"kirk4lyf"},"ip":"::1","headers":{"host":"localhost:3333","connection":"keep-alive","content-length":"46","pragma":"no-cache","cache-control":"no-cache","accept":"application/json, text/plain, */*","csrf-token":"MWNAfhUz-liLHeYoHeZWQcgPH3y0JMv3DgxA","grubber-sec-token":"U2FsdGVkX19uj0ii6qS2C+1sGYgU8+6JRv0leqWrMsRiM8XBUFTKxpqK1bdAiVqoW/BOSsdDIYek/1E1lBcpqg==","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36","content-type":"application/json;charset=UTF-8","origin":"http://localhost:3000","sec-fetch-site":"same-site","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:3000/dashboard","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9"},"params":{"0":"/api/auth/authorize"}}
+[2020-11-09T21:20:05.672] [DEBUG] default - [authorizeApi.js] Request for Authorize API  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:20:05.672] [DEBUG] default - [authorizeService.js] Authorize Service request is  { userName: 'tkcwebdev', userPass: 'kirk4lyf' }
+[2020-11-09T21:20:05.758] [DEBUG] default - [mySqlService.js] Retrieved user from database  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:20:05.758] [DEBUG] default - [authorizeService.js] Response from mySqlService is  RowDataPacket {
+  user_id: 44,
+  user_name: 'tkcwebdev',
+  user_pass: 'U2FsdGVkX19ZPlpOcgsrJqMJEqDw+A155hv0aGYHI+8=',
+  user_hash: 'TQvNUzypowYXxpW',
+  first_name: '',
+  last_name: '',
+  user_gender: '',
+  favorite_food: null,
+  user_email: 'tkcwebdev@gmail.com',
+  location: '89149',
+  user_description: null,
+  created_on: '2020-11-09 15:13:58',
+  last_updated: '2020-11-09 15:13:58'
+}
+[2020-11-09T21:20:05.760] [DEBUG] default - [authorizeApi.js] Response from authorizeService  {
+  userId: 44,
+  userName: 'tkcwebdev',
+  ttl: 1800000,
+  sessionId: 'bd4e6618-fd29-49d5-961d-ca51d4618da0'
+}
