@@ -12,7 +12,7 @@ export default function UsernameInput({ placeholder, handler, feedback }) {
   useEffect(() => {
     if (value) {
       if (value.length > 0) {
-        let regex = /^[a-z0-9.]{6,16}$/;
+        let regex = /^[a-zA-Z0-9.]{6,16}$/;
         if (regex.test(value)) {
           feedback("");
         } else {

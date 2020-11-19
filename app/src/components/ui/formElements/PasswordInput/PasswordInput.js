@@ -12,7 +12,7 @@ export default function PasswordInput({ placeholder, handler, feedback }) {
   useEffect(() => {
     if (value) {
       if (value.length > 0) {
-        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$&%^&*+=_-]).{8,}$/;
         if (regex.test(value)) {
           feedback(null);
         } else {
