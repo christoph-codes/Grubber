@@ -38,21 +38,20 @@ export default function CreateAccountForm(props) {
         };
 
         setFeedback("");
-        HttpService.requestPost(`${process.env.REACT_APP_API_HOST}/api/auth/createaccount`, accountDetails).then(() => {
-          //Load 2nd Form/Load dashboard
-          console.log("Account has been create: ", accountDetails);
+        HttpService.requestPost(`${process.env.REACT_APP_API_HOST}/api/auth/createaccount`, accountDetails).then((res) => {
+          console.log(res.data);
         }).catch((e) => {
-          //redirect to error page
-          console.log(e.response);
           if(e.response){
+            //Display Error Message from server
             if (e.response.status === 400){
               const error = e.response.data.error ? e.response.data.error : null,
                     errorMsg = e.response.data.error_message ? e.response.data.error_message : null;   
               setFeedback(errorMsg);
             }
             
+            //Handle Request Timeout Error
             if(e.response.status === 503){
-              //Handle Request Timeout
+              setFeedback("Looks like the server is taking to long to respond, please try again in sometime");
             }
           }
         });
@@ -68,72 +67,6 @@ export default function CreateAccountForm(props) {
       setIsAllFieldsFilled(false);
     }
   }, [username, email, location, password, confirmPassword]);
-
-  //Set feedback based on Username
-  // useEffect(() => {
-  //   if (username) {
-  //       if (username.length > 0) {
-  //         let regex = /^[a-zA-Z0-9.]{6,16}$/;
-  //         if (regex.test(username)) {
-  //           setFeedback("");
-  //         } else {
-  //           setFeedback(
-  //             "Your unique username must be between 6 to 16 characters and must not included any special characters. Get Creative!"
-  //           );
-  //         }
-  //       } else {
-  //         setFeedback("You must enter a unique username.");
-  //       }
-  //     } else {
-  //         setFeedback("")
-  //     }
-  // }, [username])
-
-  //Set feedback based on Email
-  // useEffect(() => {
-  //   if(email) {
-  //       if(email.length > 0) {
-  //           let regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  //           if(regex.test(email)) {
-  //               // TODO: Check to see whether the value exists in the database already
-  //               setFeedback('');
-  //           } else {
-  //               setFeedback('You must enter a valid email.');
-  //           }
-  //       } else {
-  //           setFeedback('You must enter an email address.');
-  //       }
-  //   }
-  // }, [email]);
-
-  //Set feedback based on Password
-  // useEffect(() => {
-  //   if (password) {
-  //     if (password.length > 0) {
-  //       let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$&%^&*+=_-]).{8,}$/;
-  //       if (regex.test(password)) {
-  //         setFeedback(null);
-  //       } else {
-  //         setFeedback(
-  //           "Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character"
-  //         );
-  //       }
-  //     } else {
-  //       setFeedback("You must enter a password.");
-  //     }
-  //   }
-  // }, [password, confirmPassword]);
-
-  //Set feedback based on Password comparison
-  // useEffect(() => {
-  //   if(password && confirmPassword) {
-  //     if(password === confirmPassword) {
-  //       setFeedback('');
-  //     } else {
-  //       setFeedback('Passwords do not match.');
-  //     }
-  //   }
-  // },[password, confirmPassword]);
 
   return (
     <Col className="CreateAccountForm">
