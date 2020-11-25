@@ -9,6 +9,8 @@ import { load } from './env';
 import { app } from './app';
 import { constants } from './constants/constants';
 import { mySqlService } from './services/mySql/mySqlService';
+import { redisClient } from './services/redis/redisClient';
+import { sessionClient } from './services/session/sessionClient';
 
 process.on('unhandledRejection', (reason, p) => {
     console.error('Unhandled rejection ', { reason, p });
@@ -46,4 +48,6 @@ server.on('error', errorHandler);
 server.on('listening', () => {
     console.log(`App listening on port ${constants.PORT}`);
     mySqlService.activate();
+    redisClient.activate();
+    sessionClient.activate();
 });

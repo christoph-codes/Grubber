@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { grubberLogger } from '../../../logger';
 import { basename } from 'path';
 import { authorizeService } from '../../../services/authorize/authorizeService';
-import * as memcache from 'memory-cache';
+import { sessionClient } from '../../../services/session/sessionClient';
 import { constants } from '../../../constants/constants';
 import { extractOrigin, apiErrorResponse } from '../../../utils/commonUtils';
 import { requestValidator } from '../../../middlewares';
@@ -19,9 +19,10 @@ export const authorizeApi = async (req: Request, res: Response) => {
         const sessionObj = {
             userId: response.userId,
             userName: response.userName,
-            userIp: req.ip
+            userIp: req.ip,
+            ttl: response.ttl
         };
-        memcache.put(response.sessionId, sessionObj, response.ttl);
+        sessionClient.createSession(response.sessionId, sessionObj, response.ttl);
         res.cookie(constants.SESSION_COOKIE, response.sessionId, {
             path: '/',
             maxAge: response.ttl,

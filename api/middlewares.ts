@@ -4,7 +4,8 @@ import { constants } from './constants/constants';
 import { basename } from 'path';
 import { grubberLogger } from './logger';
 import { AES, enc } from 'crypto-js';
-import * as memcache from 'memory-cache';
+import { sessionClient } from './services/session/sessionClient';
+import { extractOrigin } from './utils/commonUtils';
 
 const filename = basename(__filename);
 
@@ -118,10 +119,19 @@ export const requestValidator = (req: Request, reqBody: string[], reqParams?: st
     return true;
 };
 
-export const validateAuthenticatedSession = (req: Request, res: Response, next: NextFunction) => {
-    if (req.cookies[constants.SESSION_COOKIE] && memcache.keys().includes(req.cookies[constants.SESSION_COOKIE])) {
-        const session = memcache.get(req.cookies[constants.SESSION_COOKIE]);
+export const validateAuthenticatedSession = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const session = await sessionClient.retrieveSessionData(req.cookies[constants.SESSION_COOKIE]);
         if (checkSessionObj(req, session)) {
+            req.body = req.body || {};
+            req.body['session'] = session;
+            const newSessionId = await sessionClient.updateSession(req.cookies[constants.SESSION_COOKIE], session);
+            res.cookie(constants.SESSION_COOKIE, newSessionId, {
+                path: '/',
+                maxAge: session.ttl,
+                httpOnly: true,
+                domain: extractOrigin(req)
+            });
             next();
         } else {
             res.status(401).send({
@@ -129,7 +139,7 @@ export const validateAuthenticatedSession = (req: Request, res: Response, next: 
                 error_message: 'The session associated with the request is not valid'
             });
         }
-    } else {
+    } catch {
         res.status(401).send({
             error: 'no_session',
             error_message: 'You must be logged in to access this resource'
@@ -138,17 +148,5 @@ export const validateAuthenticatedSession = (req: Request, res: Response, next: 
 };
 
 const checkSessionObj = (req: Request, session: any): boolean => {
-    if (session.userIp !== req.ip) {
-        return false;
-    }
-
-    if (req.body['userName'] && req.body['userName'] !== session.userName) {
-        return false;
-    }
-
-    if (req.body['userId'] && req.body['userId'] !== session.userId) {
-        return false;
-    }
-
-    return true;
+    return session.userIp === req.ip;
 };
