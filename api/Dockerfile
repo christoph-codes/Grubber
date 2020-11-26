@@ -5,6 +5,7 @@ COPY pm2.json .
 COPY dist .
 COPY node_modules node_modules
 
+# Define build arguments
 ARG APP_ENV
 ARG DB_HOST
 ARG DB_USER
@@ -13,7 +14,7 @@ ARG DB
 ARG GRUBBER_REDIS
 ARG GRUBBER_REDIS_PORT
 
-# Install app dependencies
+# Define environment variables
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_ENV $APP_ENV
 ENV GRUBBER_DBHOST $DB_HOST
@@ -25,7 +26,6 @@ ENV GRUBBER_REDIS_PORT $GRUBBER_REDIS_PORT
 
 # Expose the listening port
 EXPOSE 3333
-EXPOSE 3306
 
 # Show current folder structure in logs
 RUN ls -al
