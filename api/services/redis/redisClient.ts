@@ -8,13 +8,15 @@ class RedisClient {
     private client: redis.RedisClient;
 
     public activate = () => {
-        const opts: redis.ClientOpts = {
+        if (getEnvVariable('GRUBBER_REDIS') && getEnvVariable('GRUBBER_REDIS_PORT')) {
+            const opts: redis.ClientOpts = {
             host: getEnvVariable('GRUBBER_REDIS'),
             port: getEnvVariable('GRUBBER_REDIS_PORT')
         }
         // tslint:disable-next-line: no-console
         console.log(`activating redis with host:${getEnvVariable('GRUBBER_REDIS')} and port:${getEnvVariable('GRUBBER_REDIS_PORT')}`);
         this.client = redis.createClient(opts);
+        }
     };
 
     public saveTo = (id:string, data: string, ttl: number) => {
