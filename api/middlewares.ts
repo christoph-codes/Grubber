@@ -119,6 +119,19 @@ export const requestValidator = (req: Request, reqBody: string[], reqParams?: st
     return true;
 };
 
+export const emailCheck = (email: string) => {
+    if (!/^([a-z0-9_\.-+]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/.test(email)) {
+        throw {
+            status: 400,
+            error: {
+                error: 'invalid_email',
+                error_message: 'the email provided is not properly formatted'
+            }
+        };
+    }
+    // TODO: Email blacklist
+}
+
 export const validateAuthenticatedSession = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const session = await sessionClient.retrieveSessionData(req.cookies[constants.SESSION_COOKIE]);

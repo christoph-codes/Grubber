@@ -39,7 +39,7 @@ class MySqlService {
 
             const query = format(queryString,
                 // tslint:disable-next-line: max-line-length
-                [user.userName, userPass, userHash, "", "", "", null, user.email, user.location, null, currDate, currDate]);
+                [user.userName, userPass, userHash, '', '', '', null, user.email, user.location, null, currDate, currDate]);
 
             this.pool.query(query, (err, res) => {
                 if (err) {
@@ -66,6 +66,38 @@ class MySqlService {
                 }
 
                 grubberLogger.debug('Added user into database', { filename, obj: res });
+                resolve(res);
+            });
+        });
+    };
+
+    public updateUser = (userId: any, user: object) => {
+        return new Promise<any>((resolve, reject) => {
+            let queryString = 'UPDATE USERS SET ';
+            const queryData = [];
+
+            Object.keys(user).forEach(key => {
+                if (queryString === 'UPDATE USERS SET ') {
+                    queryString += '?? = ?';
+                } else {
+                    queryString += ', ?? = ?';
+                }
+                queryData.push(key);
+                queryData.push(user[key]);
+            });
+
+            queryString += ' WHERE ?? = ?';
+            queryData.push('user_id');
+            queryData.push(userId);
+
+            const query = format(queryString, queryData);
+
+            this.pool.query(query, (err, res) => {
+                if (err) {
+                    grubberLogger.error('Error updating user ', { filename, obj: err });
+                    reject(err);
+                }
+                grubberLogger.debug(`Updated user with user id ${userId} `, { filename, obj: res });
                 resolve(res);
             });
         });
