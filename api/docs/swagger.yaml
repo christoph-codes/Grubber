@@ -109,6 +109,11 @@ paths:
           description: Either username or password is already in use
           schema:
             $ref: '#/definitions/CreateAccountBadRequest'
+        503:
+          description: request timed out
+          schema:
+            $ref: '#/definitions/503'
+            
   /api/profile/distance:
     post:
       tags:
@@ -131,6 +136,33 @@ paths:
             $ref: '#/definitions/DistanceResponse'
         503:
           description: Response timed out
+          schema:
+            $ref: '#/definitions/503'
+            
+  /api/auth/checksession:
+    get:
+      tags:
+      - Authentication
+      summary: Returns a 200 status code if the session cookie associated with the request is valid, can pass a query parameter with name type to check if any action is required.
+      operationId: checkSession
+      description: Used to determine if the current session is valid
+      produces:
+      - application/json
+      responses:
+        200:
+          description: session is valid
+          schema:
+            $ref: '#/definitions/CheckSessionResponse'
+        401:
+          description: session is not valid
+          schema:
+            $ref: '#/definitions/CheckSessionErrorResponse'
+        418:
+          description: if you are markus
+          schema:
+            $ref: '#/definitions/418'
+        503:
+          description: request timed out
           schema:
             $ref: '#/definitions/503'
 
@@ -269,6 +301,27 @@ definitions:
       error:
         type: string
         example: request_timeout
+  CheckSessionResponse:
+    type: object
+    required:
+    - userId
+    properties:
+      userId:
+        type: number
+        example: 1111111
+      action:
+        type: string
+        example: 'complete_profile'
+  CheckSessionErrorResponse:
+    type: object
+    properties:
+      error: 
+        type: string
+        example: invalid_session
+      error_message:
+        type: string
+        example: The session associated with the request is not valid
+        
 # Added by API Auto Mocking Plugin
 host: ec2-54-190-46-230.us-west-2.compute.amazonaws.com
 basePath: /
