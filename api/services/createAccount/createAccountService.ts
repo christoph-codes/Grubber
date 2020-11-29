@@ -29,7 +29,6 @@ class CreateAccountService {
     private sanitizeCreateAccountData = (data: any) => {
         let sanitizedData = data;
         sanitizedData.userName = sanitizedData.userName.toLowerCase();
-        sanitizedData.location = sanitizedData.location.value.structured_formatting.main_text;
         return sanitizedData;
     }
 }

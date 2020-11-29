@@ -4,17 +4,13 @@ import { Col, Button } from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import "./CreateAccountForm.scss";
 
-import createAccountValidator from '../util/createAccountValidator';
-
 import EmailInput from "../ui/formElements/EmailInput/EmailInput";
 import UsernameInput from "../ui/formElements/UsernameInput/UsernameInput";
-import LocationInput from "../ui/formElements/LocationInput/LocationInput";
 import PasswordInput from "../ui/formElements/PasswordInput/PasswordInput";
 
 export default function CreateAccountForm(props) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [location, setLocation] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -33,7 +29,6 @@ export default function CreateAccountForm(props) {
         const accountDetails = {
           email,
           userName: username,
-          location,
           userPass: password // May need to encrypt if we do not use TLS/HTTPS
         };
 
@@ -44,8 +39,7 @@ export default function CreateAccountForm(props) {
           if(e.response){
             //Display Error Message from server
             if (e.response.status === 400){
-              const error = e.response.data.error ? e.response.data.error : null,
-                    errorMsg = e.response.data.error_message ? e.response.data.error_message : null;   
+              const errorMsg = e.response.data.error_message ? e.response.data.error_message : null;   
               setFeedback(errorMsg);
             }
             
@@ -60,25 +54,25 @@ export default function CreateAccountForm(props) {
   };
 
   useEffect(() => {
-    if(email && username && location && password && confirmPassword){
+    if(email && username && password && confirmPassword){
       setIsAllFieldsFilled(true);
     }
     else{
       setIsAllFieldsFilled(false);
     }
-  }, [username, email, location, password, confirmPassword]);
+  }, [username, email, password, confirmPassword]);
 
   useEffect(() => {
-    if(errors.username != ""){
+    if(errors.username !== ""){
       setFeedback(errors.username);
     }
-    else if(errors.email != ""){
+    else if(errors.email !== ""){
       setFeedback(errors.email);
     }
-    else if(errors.password != ""){
+    else if(errors.password !== ""){
       setFeedback(errors.password);
     }
-    else if(errors.confirmPassword != ""){
+    else if(errors.confirmPassword !== ""){
       setFeedback(errors.confirmPassword);
     }
     else {
@@ -182,7 +176,6 @@ export default function CreateAccountForm(props) {
             onBlurHandler={validateUsername}
             required={true}
           />
-          <LocationInput feedback={setFeedback} handler={setLocation} />
           <EmailInput
             placeholder="Email Address"
             handler={setEmail}
