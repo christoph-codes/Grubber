@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import './EmailInput.scss';
 
-export default function EmailInput({ placeholder, handler}) {
+export default function EmailInput({ placeholder, handler, onBlurHandler}) {
     const [value,setValue] = useState('')
 
     const sendValue = (e) => {
@@ -17,6 +17,7 @@ export default function EmailInput({ placeholder, handler}) {
 				<FormControl
 					placeholder={placeholder}
 					onChange={sendValue}
+					onBlur={onBlurHandler}
                     type='email'
                     value={value}
 				/>
