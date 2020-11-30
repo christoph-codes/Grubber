@@ -16,7 +16,7 @@ export default function MarketingFrame(props) {
 					{link: "/create-account", exact: false, text: "Create Account"}]} />
       <Switch>
         <Route path="/" exact component={HomeLogin} />
-        <Route path="/create-account" exact component={CreateAccount} />
+        <Route path="/create-account" component={CreateAccount} />
         <Route path="/forgot-password" exact component={ForgotPassword} />
         <Route path="/splash" exact component={SplashScreen} />
       </Switch>

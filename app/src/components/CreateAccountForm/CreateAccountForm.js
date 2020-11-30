@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HttpService from '../../services/HttpService/HttpService';
 import { Col, Button } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import "./CreateAccountForm.scss";
 
 import EmailInput from "../ui/formElements/EmailInput/EmailInput";
@@ -22,6 +22,8 @@ export default function CreateAccountForm(props) {
     confirmPassword: ""
   });
 
+  let history = useHistory();
+
   const createAccount = () => {
     if (isAllFieldFilled) {
       //If validation error exists, then display first validation error.
@@ -34,7 +36,7 @@ export default function CreateAccountForm(props) {
 
         setFeedback("");
         HttpService.requestPost(`${process.env.REACT_APP_API_HOST}/api/auth/createaccount`, accountDetails).then((res) => {
-          console.log(res.data);
+          history.push("create-account/personal-details");
         }).catch((e) => {
           if(e.response){
             //Display Error Message from server

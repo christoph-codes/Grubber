@@ -1,8 +1,10 @@
 import React from 'react';
+import { Route, Switch } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import './CreateAccount.scss';
 import logowhite from '../../../assets/grub-logo-white-lg.svg';
 import CreateAccountForm from '../../CreateAccountForm/CreateAccountForm';
+import PersonalDetailsForm from '../../PersonalDetailsForm/PersonalDetailsForm';
 
 export default function CreateAccount(props) {
 	return (
@@ -15,7 +17,10 @@ export default function CreateAccount(props) {
 						</div>
 					</Col>
 					<Col md={true} sm={12}>
-						<CreateAccountForm/>
+						<Switch>
+							<Route path="/create-account" exact component={CreateAccountForm} />
+							<Route path="/create-account/personal-details" exact component={PersonalDetailsForm} />
+						</Switch>
 					</Col>
 				</Row>
 			</Container>
