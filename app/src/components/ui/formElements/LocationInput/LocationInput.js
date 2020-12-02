@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./LocationInput.scss";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
-export default function LocationInput({ placeholder, handler, feedback }) {
+export default function LocationInput({ handler }) {
   const [value, setValue] = useState("");
 
   useEffect(() => {

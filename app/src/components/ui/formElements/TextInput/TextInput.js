@@ -2,15 +2,10 @@ import React, { Fragment } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import './TextInput.scss'
 
-export default function TextInput({ placeholder, handler, feedback}) {
+export default function TextInput({ placeholder, handler, onBlurHandler}) {
 
     const sendValue = (e) => {
         let val = e.target.value;
-        if(val.length > 0) {
-                feedback('')
-        } else {
-            feedback('You must fill in the field.')
-        }
         handler(val);
     }
 	return (
@@ -19,6 +14,7 @@ export default function TextInput({ placeholder, handler, feedback}) {
 				<FormControl
 					placeholder={placeholder}
 					onChange={sendValue}
+					onBlur={onBlurHandler}
                     type='text'
 				/>
 			</InputGroup>
