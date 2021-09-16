@@ -1,0 +1,14 @@
+@import '../../assets/styles/colors';
+.UserNav {
+	border-bottom: solid $primarylt 2px;
+	.active {
+		.Button {
+			background-color: $primarylt;
+		}
+	}
+	.Button {
+		&:hover {
+			background-color: $primarylt;
+		}
+	}
+}
