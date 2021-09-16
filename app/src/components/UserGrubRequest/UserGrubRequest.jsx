@@ -54,7 +54,6 @@ const UserGrubRequest = () => {
 				onClick={() => setOpenForm(true)}
 				setValue={setGrubMessage}
 				value={grubMessage}
-				required
 			/>
 			<Collapse in={openForm}>
 				<div className="grub-request-form">
@@ -67,7 +66,6 @@ const UserGrubRequest = () => {
 								setValue={setGrubUsersRequested}
 								value={grubUsersRequested}
 								min="0"
-								required
 							/>
 						</Col>
 						<Col>
