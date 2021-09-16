@@ -9,7 +9,7 @@ import './UserNav.scss';
 const UserNav = () => {
 	return (
 		<nav className="UserNav py-3">
-			<Row>
+			<Row className="align-items-center">
 				<Col className="border-right ">
 					<img
 						className="navlogo"
