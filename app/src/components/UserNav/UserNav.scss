@@ -1,6 +1,17 @@
 @import '../../assets/styles/colors';
 .UserNav {
 	border-bottom: solid $primarylt 2px;
+	.Button {
+		img {
+			transition: 0.3s;
+		}
+
+		&:hover {
+			img {
+				transform: translateY(-4px) rotate(15deg);
+			}
+		}
+	}
 	.active {
 		.Button {
 			background-color: $primarylt;
