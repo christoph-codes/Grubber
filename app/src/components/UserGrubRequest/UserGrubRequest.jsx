@@ -46,7 +46,6 @@ const UserGrubRequest = () => {
 	};
 	return (
 		<div className="UserGrubRequest">
-			<h2 className="text-primary">Ready for some grub?</h2>
 			<TextInput
 				label="Send a message with your request"
 				placeholder="ie. Too hungry for chinese. Any recommdendations"

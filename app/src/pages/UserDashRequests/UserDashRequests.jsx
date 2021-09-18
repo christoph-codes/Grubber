@@ -1,11 +1,12 @@
 import React from 'react';
+import DashboardContainer from '../../components/DashboardContainer';
 import './UserDashRequests.scss';
 
 const UserDashRequests = () => {
 	return (
-		<div className="UserDashRequests animate__animated animate__fadeInUpBig">
+		<DashboardContainer title="Grub Requests" className="UserDashRequests">
 			UserDashRequests
-		</div>
+		</DashboardContainer>
 	);
 };
 

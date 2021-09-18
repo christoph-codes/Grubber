@@ -1,11 +1,12 @@
 import React from 'react';
+import DashboardContainer from '../../components/DashboardContainer';
 import './UserDashFriends.scss';
 
 const UserDashFriends = () => {
 	return (
-		<div className="UserDashFriends animate__animated animate__fadeInUpBig">
+		<DashboardContainer title="Friends" className="UserDashFriends">
 			UserDashFriends
-		</div>
+		</DashboardContainer>
 	);
 };
 

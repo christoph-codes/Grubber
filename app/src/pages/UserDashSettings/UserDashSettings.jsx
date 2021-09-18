@@ -1,11 +1,12 @@
 import React from 'react';
+import DashboardContainer from '../../components/DashboardContainer';
 import './UserDashSettings.scss';
 
 const UserDashSettings = () => {
 	return (
-		<div className="UserDashSettings animate__animated animate__fadeInUpBig">
+		<DashboardContainer title="Settings" className="UserDashSettings">
 			UserDashSettings
-		</div>
+		</DashboardContainer>
 	);
 };
 
