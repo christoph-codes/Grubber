@@ -6,7 +6,7 @@ import CreateAccount from "../../pages/CreateAccount/CreateAccount";
 import HomeLogin from "../../pages/HomeLogin/HomeLogin";
 import ForgotPassword from "../../pages/ForgotPassword/ForgotPassword";
 
-import Header from "../../Header/header.component";
+import Header from "../../Header";
 
 export default function MarketingFrame(props) {
   return (
