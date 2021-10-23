@@ -4,6 +4,8 @@ import MarketingFrame from "../frames/MarketingFrame/MarketingFrame";
 import UserFrame from "../frames/UserFrame/UserFrame";
 import "./App.scss";
 
+import Loader from "../SharedComponents/Loader/Loader";
+
 function App() {
 	return (
 		<Router>
@@ -15,6 +17,7 @@ function App() {
 					</Switch>
 				</div>
 				{/* Placeholder for footer */}
+				<Loader />
 			</div>
 		</Router>
 	);
