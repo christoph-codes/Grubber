@@ -7,9 +7,9 @@ log4js.configure({
         debug: { type: 'file', filename: 'logs/grubber-debug.log'},
         error: { type: 'file', filename: 'logs/grubber-error.log'},
         access: { type: 'file', filename: 'logs/grubber-access.log'},
-        debugLog: { type: 'logLevelFilter', appender: 'debug', level: 'debug' },
+        debugLog: { type: 'logLevelFilter', appender: 'debug', level: 'debug', maxLevel: 'debug'},
         errorLog: { type: 'logLevelFilter', appender: 'error', level: 'error' },
-        accessLog: { type: 'logLevelFilter', appender: 'access', level: 'trace' },
+        accessLog: { type: 'logLevelFilter', appender: 'access', level: 'trace', maxLevel: 'trace' },
         info: { type: 'file', filename: 'logs/grubber-info.log'}
     },
     categories: {
