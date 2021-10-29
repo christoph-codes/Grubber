@@ -6,7 +6,7 @@ import ForgotPasswordForm from '../../ForgotPasswordForm/ForgotPasswordForm';
 
 export default function ForgotPassword(props) {
      return (
-        <div className='ForgotPassword'>
+        <div className='ForgotPassword animate__animated animate__fadeIn'>
             <Container fluid='true'>
 				<Row noGutters>
 					<Col md={true} sm={12}>

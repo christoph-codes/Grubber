@@ -6,7 +6,7 @@ import LoginForm from '../../LoginForm/LoginForm';
 
 export default function HomeLogin(props) {
      return (
-        <div className='HomeLogin'>
+        <div className='HomeLogin animate__animated animate__fadeIn'>
             <Container fluid='true'>
 				<Row noGutters>
 					<Col md={true} sm={12}>

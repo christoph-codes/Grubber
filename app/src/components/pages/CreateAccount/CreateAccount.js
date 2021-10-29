@@ -6,7 +6,7 @@ import CreateAccountForm from '../../CreateAccountForm/CreateAccountForm';
 
 export default function CreateAccount(props) {
 	return (
-		<div className='CreateAccount'>
+		<div className='CreateAccount animate__animated animate__fadeIn'>
 			<Container fluid='true'>
 				<Row noGutters>
 					<Col md={true} sm={12}>
