@@ -1,20 +1,18 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LocationInput.scss";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 export default function LocationInput({ placeholder, handler, feedback }) {
   const [value, setValue] = useState("");
 
-  const googleApiKey = "AIzaSyA43VuDn_6O3Z16WNRGrz1QL_vIl3JMqwc";
+  const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
   useEffect(() => {
     handler(value);
   });
 
   return (
-    <Fragment>
       <GooglePlacesAutocomplete
-        
         apiKey={googleApiKey}
         selectProps={{
           placeholder: "City, State, or Zip Code",
@@ -62,6 +60,5 @@ export default function LocationInput({ placeholder, handler, feedback }) {
           }
         }}
       />
-    </Fragment>
   );
 }
