@@ -1,0 +1,32 @@
+$primary: #4a31c1;
+$primarymd: #a498e0;
+$primarylt: #dbd6f3;
+$primaryltlt: #eeeaff;
+$primarywt: #f5f4ff;
+$secondary: #dba74c;
+$secondarymd: #edd3a6;
+$secondarylt: #f8eddb;
+$tertiary: #08cd95;
+$tertiarymd: #84e6ca;
+$tertiarylt: #cef5ea;
+
+$danger: #c13158;
+$dangerlt: #ffd1dd;
+$dangerwt: #fff1f5;
+$white: #ffffff;
+$black: #000000;
+
+$theme-colors: (
+	'primary': $primary,
+	'primarymd': $primarymd,
+	'primarylt': $primarylt,
+	'primarywt': $primarywt,
+	'secondary': $secondary,
+	'secondarymd': $secondarymd,
+	'secondarylt': $secondarylt,
+	'tertiary': $tertiary,
+	'tertiarymd': $tertiarymd,
+	'tertiarylt': $tertiarylt,
+	'white': $white,
+	'black': $black,
+);

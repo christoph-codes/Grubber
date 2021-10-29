@@ -1,52 +1,72 @@
-@import "~bootstrap/scss/bootstrap";
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,300;1,700&display=swap");
+@import './assets/styles/custom';
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,300;1,700&display=swap');
 // Color Variables
 :root {
-  --primary: #4a31c1;
-  --primarymd: #a498e0;
-  --primarylt: #dbd6f3;
-  --primarywt: #f5f4ff;
-  --secondary: #dba74c;
-  --secondarymd: #edd3a6;
-  --secondarylt: #f8eddb;
-  --tertiary: #08cd95;
-  --tertiarymd: #84e6ca;
-  --tertiarylt: #cef5ea;
+	--primary: #4a31c1;
+	--primarymd: #a498e0;
+	--primarylt: #dbd6f3;
+	--primarywt: #f5f4ff;
+	--secondary: #dba74c;
+	--secondarymd: #edd3a6;
+	--secondarylt: #f8eddb;
+	--tertiary: #08cd95;
+	--tertiarymd: #84e6ca;
+	--tertiarylt: #cef5ea;
 }
 
 .fade-in {
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
-  -moz-animation: fadeIn ease 1s;
-  -o-animation: fadeIn ease 1s;
-  -ms-animation: fadeIn ease 1s;
-  }
-  @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
-  
-  @-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
-  
-  @-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
-  
-  @-o-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
-  
-  @-ms-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
+	animation: fadeIn ease 1s;
+	-webkit-animation: fadeIn ease 1s;
+	-moz-animation: fadeIn ease 1s;
+	-o-animation: fadeIn ease 1s;
+	-ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
 h1,
 h2,
@@ -54,9 +74,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "DM Serif Text", serif;
-  line-height: 1;
-  margin-bottom: 20px;
+	font-family: 'DM Serif Text', serif;
+	line-height: 1;
+	margin-bottom: 20px;
+	color: $primary;
 }
 p,
 li,
@@ -64,145 +85,152 @@ input,
 textarea,
 label,
 ::placeholder {
-  font-family: "Roboto", sans-serif;
-  font-weight: lighter;
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
 }
 h1 {
-  font-size: 2.6em;
+	font-size: 2.6em;
 }
 h2 {
-  font-size: 2.056em;
+	font-size: 2.056em;
 }
 h3 {
-  font-size: 1.611em;
+	font-size: 1.611em;
 }
 h4 {
-  font-size: 1.278em;
+	font-size: 1.278em;
 }
 h5 {
-  font-size: 1em;
+	font-size: 1em;
 }
 h6 {
-  font-size: 0.778em;
+	font-size: 0.778em;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 .page-container {
-  width: 100%;
+	width: 100%;
 }
 
 .additional-form-links {
-  margin: 15px 0;
-  display: grid;
-  a {
-      margin: 10px 0;
-      text-decoration: underline;
-  }
+	margin: 15px 0;
+	display: grid;
+	a {
+		margin: 10px 0;
+		text-decoration: underline;
+	}
 }
 
 .primary {
-  color: var(--primary);
+	color: var(--primary);
 }
 .secondary {
-  color: var(--secondary);
+	color: var(--secondary);
 }
 
 .purplebg {
-  background: var(--primary);
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  li,
-  small,
-  a {
-    color: white;
-  }
+	background: var(--primary);
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	li,
+	small,
+	a {
+		color: white;
+	}
 }
 
 .full-height {
-  height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .content {
-    max-width: 60%;
-    width: 100%;
-    text-align: left;
-  }
+	height: calc(100vh - 70px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.content {
+		max-width: 60%;
+		width: 100%;
+		text-align: left;
+	}
 }
 
 input.form-control {
-  border-radius: 30px !important;
-  border: none;
-  margin-bottom: 20px !important;
-  &::placeholder {
-    color: var(--primarymd);
-  }
+	border-radius: 30px !important;
+	border: none;
+	margin-bottom: 20px !important;
+	&::placeholder {
+		color: var(--primarymd);
+	}
 }
 .btn-primary {
-  color: #fff;
-  background-color: var(--secondary);
-  border: none;
-  border-radius: 30px;
-  padding: 0.5rem 1.5rem;
-  min-width: 60%;
-  max-width: 100%;
-  transition: 0.3s;
-  height: calc(1.5em + 1rem + 2px);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  font-weight: 400;
-  box-sizing: border-box;
-  &:hover, &:active, &.active, &.focus, &:focus, &:not(:disabled):not(.disabled):active, &:not(:disabled):not(.disabled).active {
-    background-color: var(--secondarymd);
-  }
-  &.disabled, &:disabled {
-    color: darkgray;
-    background-color: lightgray;
-  }
+	color: #fff;
+	background-color: var(--secondary);
+	border: none;
+	border-radius: 30px;
+	padding: 0.5rem 1.5rem;
+	min-width: 60%;
+	max-width: 100%;
+	transition: 0.3s;
+	height: calc(1.5em + 1rem + 2px);
+	font-size: 1.25rem;
+	line-height: 1.5;
+	font-weight: 400;
+	box-sizing: border-box;
+	&:hover,
+	&:active,
+	&.active,
+	&.focus,
+	&:focus,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active {
+		background-color: var(--secondarymd);
+	}
+	&.disabled,
+	&:disabled {
+		color: darkgray;
+		background-color: lightgray;
+	}
 }
 .feedback {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .half-img {
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {
-    max-width: 70%;
-    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
-  }
+	background-size: cover;
+	background-position: center;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	img {
+		max-width: 70%;
+		filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+	}
 }
 button.cancel-link {
-  border: none;
-  background: transparent;
-  margin: 20px 0;
-  color: var(--secondary);
-  transition: 0.3s;
-  &:hover {
-    color: var(--secondarymd)
-  }
+	border: none;
+	background: transparent;
+	margin: 20px 0;
+	color: var(--secondary);
+	transition: 0.3s;
+	&:hover {
+		color: var(--secondarymd);
+	}
 }
 
 @media (max-width: 767px) {
-  .full-height {
-    .content {
-      max-width: 85%;
-    }
-  }
-  .half-img {
-    height: 70vh;
-  }
+	.full-height {
+		.content {
+			max-width: 85%;
+		}
+	}
+	.half-img {
+		height: 70vh;
+	}
 }
