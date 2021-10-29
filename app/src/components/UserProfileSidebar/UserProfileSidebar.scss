@@ -1,0 +1,53 @@
+@import '../../assets/styles/colors';
+.UserProfileSidebar {
+	padding: 0 2rem 1rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	.user-quick-touches {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.headshot {
+			border-radius: 50%;
+			border: solid 10px white;
+			filter: drop-shadow(5px 5px 30px rgba(0, 0, 0, 0.1));
+			margin: 0 10px;
+			width: 65%;
+		}
+	}
+
+	hr {
+		margin-top: 2rem;
+		border-top: $primarylt 2px solid;
+		width: 100%;
+	}
+	.account-group {
+		padding: 15px 0;
+		font-size: 21px;
+		font-family: 'Roboto', sans-serif;
+
+		p {
+			color: var(--primary);
+			font-weight: bold;
+			font-size: 16px;
+			&.account-group-label {
+				font-weight: lighter;
+				color: var(--primarymd);
+				margin: 0 0 10px;
+			}
+		}
+	}
+	.logout {
+		margin-top: auto;
+		padding: 1rem;
+		border: none;
+		background: $primaryltlt;
+		color: $primarymd;
+		font-weight: bold;
+		transition: 0.3s;
+		&:hover {
+			color: $primary;
+		}
+	}
+}

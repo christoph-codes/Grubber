@@ -1,0 +1,45 @@
+@import '../../assets/styles/colors';
+.Button {
+	padding: 1rem 2rem;
+	font-size: 1.25rem;
+	border-radius: 3rem;
+	border: none;
+	display: flex;
+	color: $primary;
+	outline: none;
+	border: transparent 2px solid;
+	transition: 0.3s;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	&:focus {
+		outline: none;
+	}
+	&.primary {
+		background-color: $primary;
+		color: $white;
+		&:hover {
+			background-color: $primarymd;
+		}
+	}
+	&.primary-ghost {
+		background-color: transparent;
+		color: $primary;
+		border-color: $primary;
+		&:hover {
+			background-color: $primarywt;
+		}
+	}
+	&.ghost {
+		background-color: transparent;
+		color: $primary;
+		&:hover {
+			color: $primarywt;
+		}
+	}
+	& + .Button {
+		margin: 1rem auto;
+	}
+}

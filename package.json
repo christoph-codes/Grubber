@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/tkcwebdev/Grubber/issues"
   },
-  "homepage": "https://github.com/tkcwebdev/Grubber#readme"
+  "homepage": "https://github.com/tkcwebdev/Grubber#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "prettier": "2.4.0"
+  }
 }
