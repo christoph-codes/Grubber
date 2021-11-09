@@ -5,7 +5,7 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 const LocationInput = ({ placeholder, handler, feedback }) => {
 	const [value, setValue] = useState('');
 
-	const googleApiKey = 'AIzaSyA43VuDn_6O3Z16WNRGrz1QL_vIl3JMqwc';
+	const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 	useEffect(() => {
 		handler(value);

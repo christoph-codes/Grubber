@@ -3,10 +3,10 @@ import { Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './CreateAccountForm.scss';
 
-import EmailInput from '../Inputs/EmailInput/EmailInput';
-import UsernameInput from '../Inputs/UsernameInput/UsernameInput';
-import LocationInput from '../Inputs/LocationInput/LocationInput';
-import PasswordInput from '../Inputs/PasswordInput/PasswordInput';
+import EmailInput from '../Inputs/EmailInput';
+import UsernameInput from '../Inputs/UsernameInput';
+import LocationInput from '../Inputs/LocationInput';
+import PasswordInput from '../Inputs/PasswordInput';
 
 const CreateAccountForm = () => {
 	const [email, setEmail] = useState('');
