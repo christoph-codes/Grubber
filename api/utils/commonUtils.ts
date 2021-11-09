@@ -6,7 +6,7 @@ export const extractOrigin = (req: Request) => {
     if (origin.includes('localhost')) {
         return '.localhost';
     } else {
-        return origin.substring(0, origin.indexOf('.com') + 4).replace('http://', '.');
+        return origin.substring(0, origin.indexOf('.com') + 4).replace(/^https?:\/\//, '.');
     }
 };
 

@@ -1,21 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./LocationInput.scss";
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 export default function LocationInput({ placeholder, handler, feedback }) {
   const [value, setValue] = useState("");
 
-  const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+  const googleApiKey = "AIzaSyA43VuDn_6O3Z16WNRGrz1QL_vIl3JMqwc";
 
+//   const sendValue = e => {
+//     let val = e.target.value;
+//     setValue(val);
+//     if (val.length > 0) {
+//       feedback("");
+//     } else {
+//       feedback("You must enter a unique username.");
+//     }
+//   };
   useEffect(() => {
-    handler(value);
+    handler(value.label);
   });
 
   return (
+    <Fragment>
       <GooglePlacesAutocomplete
+        
         apiKey={googleApiKey}
         selectProps={{
-          placeholder: "City, State, or Zip Code",
+          placeholder: "Enter City, State, or Zip Code",
           value,
           onChange: setValue,
           styles: {
@@ -36,11 +47,11 @@ export default function LocationInput({ placeholder, handler, feedback }) {
               fontWeight: 'normal',
               lineHeight: 1.5,
               fontFamily: 'Roboto',
-              color: '#A498E0',
-              cursor: 'pointer',
+              color: '#A498E0'
               }),
             input: (provided) => ({
               ...provided,
+              placeholder: "Enter City, State, or Zip Code",
               color: '#4A31C1',
             }),
             option: (provided) => ({
@@ -60,5 +71,6 @@ export default function LocationInput({ placeholder, handler, feedback }) {
           }
         }}
       />
+    </Fragment>
   );
 }
